@@ -1,4 +1,4 @@
-# Task, Methods and Application extraction
+# Task and method extraction
 
 ## Dependencies
 This code was developed using Python 3.7. To create a new Conda environment using Python 3.7, do `conda create --name dygiepp python=3.7`.
