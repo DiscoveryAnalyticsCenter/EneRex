@@ -11,10 +11,9 @@ For data preprocessing a few additional data and string processing libraries are
 
 
 ## Details
-Our algorithm to extract task, application and method terms uses dygie++ system to extract entities and their relations. We then use rules and filters to decide on the task, application and method terms for each paper. 
+Our algorithm to extract task, application and method terms uses dygie++ system to extract entities and their relations. We then use rules and filters to decide on the task, application and method terms for each paper. Please run the `get_scibert.py` first to get Sci_BERT vocabulary that is necessary for the model.
 
-
-- [ ] We are using the SciERC_lightweight model in dygiee++ system for running dygie++ on our data. The model file is already placed in the directory named `pretrained`. Please run the `get_scibert.py` first to get Sci_BERT vocabulary that is necessary for the model.
+<!-- - [ ] We are using the SciERC_lightweight model in dygiee++ system for running dygie++ on our data. The model file is already placed in the directory named `pretrained`.  -->
 
 ### Input file format
 The input to the scripts in this directory is the structured data files (`task1/data/JSONs/`) that our extraction pipeline normally use. Refer to [`task1` directory readme file](https://github.com/DiscoveryAnalyticsCenter/csetproject/tree/master/task1) to view available options to generate structured JSON files. We have three data converter implemented at this moment. a)PDF, b)TXT and c)CSET annotated jsonl files.

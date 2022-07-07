@@ -4,7 +4,7 @@ tempData/*
 
 runs/
 
-noncontext/datasetData
-noncontext/sourcecodeData
+# noncontext/datasetData
+# noncontext/sourcecodeData
 
 environment_minimal.yml
