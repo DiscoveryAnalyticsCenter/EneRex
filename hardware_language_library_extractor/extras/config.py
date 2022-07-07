@@ -1,0 +1,46 @@
+# PDF_FOLDER_PATH = "/mnt/c/Users/kkkoo/OneDrive/Documents/VirginiaTech/DACResearch/SampleOutput"
+# LIST_OF_PDFs = "/mnt/c/Users/kkkoo/OneDrive/Documents/VirginiaTech/DACResearch/SampleOutput/filelist.txt"
+# OUTPUT_FOLDER = "/mnt/c/Users/kkkoo/OneDrive/Documents/VirginiaTech/DACResearch/SampleOutput/output"
+# MODELS_FOLDER_BASE_PATH = "/mnt/c/Users/kkkoo/OneDrive/Documents/VirginiaTech/DACResearch/extraction_pipeline_results/models"
+# TRAINING_DATA_BASE_PATH = "/mnt/c/Users/kkkoo/OneDrive/Documents/VirginiaTech/DACResearch/data/outputjson/outputjson/extracted_sentences"
+HARDWARE_CLASSIFIER_MODEL = "hardware_sentence_classifier.sav"
+TRANSFORMER_HARDWARE_CLASSIFIER = "transformer_h_classifier/checkpoint-12000"
+TRANSFORMER_LANGUAGE_CLASSIFIER = "transformer_lang_classifier/checkpoint-6000"
+TRANSFORMER_LIBRARY_CLASSIFIER = "transformer_lib_classifier/checkpoint-4000"
+LANGUAGE_CLASSIFIER_MODEL = "language_sentence_classifier.sav"
+LIBRARY_CLASSIFIER_MODEL = "library_sentence_classifier.sav"
+HARDWARE_CLUSTERING_MODEL = "hardware_clustering_model.sav"
+LANGUAGE_CLUSTERING_MODEL = "language_clustering_model.sav"
+LIBRARY_CLUSTERING_MODEL = "library_clustering_model.sav"
+NER_MODEL = "bert_crf_ner"
+SCIBERT_EMBEDDING_MODEL = "scibert_scivocab_uncased"
+LOGGER_NAME = "extraction_pipeline"
+LOG_LEVEL = "INFO"
+MIN_THRESHOLD_SENTCHAR_LEN = 20
+MAX_THRESHOLD_SENTCHAR_LEN = 250
+SENTENCE_CLASSIFIER_PROBABILITY_THRESHOLD = 0.95
+HARDWARE_CLUSTER_MAPPING_FILE = 'spacyhardware_sentence_mapping.csv'
+LANGUAGE_CLUSTER_MAPPING_FILE = 'spacylanguage_sentence_mapping.csv'
+LIBRARY_CLUSTER_MAPPING_FILE = 'spacylibrary_sentence_mapping.csv'
+HARDWARE_KEYWORDS = ["CPU", "Kernels", "NVIDIA", "FPGA", "Core", "GPU", "Tensor Core", "Tensor Processing Unit", "CUDA", "GHz", "AMD", "Dell", "Precision", "registers", "SIMD", "processor","Linux", "RAM", "Intel", "Xeon"]
+LANGUAGE_KEYWORDS = ['python', 'matlab', 'Java', 'R']
+LIBRARY_KEYWORDS = ["scikit", "pytorch", "opennmt", "tensorflow", "keras", "theano", "caffe", "torch", "mxnet", "coreML", "CNTK"]
+SPACY_NER_TRAIN_DATA = "spacy_ner.jsonl"
+ANNOTATED_FOLDER = "annotated"
+ANNOTATED_PAPERS_LIST = "annotated_paper.txt"
+OUTPUT_PAPER_LIST = "output_list.txt"
+HARDWARE_POSITIVE_SENTENCES = "positive_hardware_sents.txt"
+HARDWARE_NEGATIVE_SENTENCES = "negative_hardware_sents.txt"
+LANGUAGE_POSITIVE_SENTENCES = "positive_language_sents.txt"
+LANGUAGE_NEGATIVE_SENTENCES = "negative_language_sents.txt"
+LIBRARY_POSITIVE_SENTENCES = "positive_library_sents.txt"
+LIBRARY_NEGATIVE_SENTENCES = "negative_library_sents.txt"
+
+PDF_FOLDER_PATH = '/home/group/cset/newAllCSjson'
+LIST_OF_PDFs = '/home/group/cset/extracted_sentences/filelist.txt'
+OUTPUT_FOLDER = '/home/group/cset/extracted_sentences/output'
+MODELS_FOLDER_BASE_PATH = '/home/group/cset/extracted_sentences/models'
+TRAINING_DATA_BASE_PATH = '/home/group/cset/extracted_sentences/'
+
+
+HARDWARE_NAMES = ["CPU", "GPU", "TPU", "NVIDIA", "Tesla", "GEFORCE", "GTX", "TITAN", "RTX", "G-Sync", "CUDA", "NVENC", "Intel", "Xeon", "Pentium", "APElink"]

@@ -1,0 +1,1361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 /home/raquib/csetproject/task1/Grobid/grobid-0.5.6/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">ProphetNet: Predicting Future N-gram for Sequence-to-Sequence Pre-training</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Yu</forename><surname>Yan</surname></persName>
+						</author>
+						<author>
+							<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Weizhen</forename><surname>Qi</surname></persName>
+						</author>
+						<author>
+							<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Yeyun</forename><surname>Gong</surname></persName>
+						</author>
+						<author>
+							<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Dayiheng</forename><surname>Liu</surname></persName>
+						</author>
+						<author>
+							<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Nan</forename><surname>Duan</surname></persName>
+						</author>
+						<author>
+							<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Jiusheng</forename><surname>Chen</surname></persName>
+						</author>
+						<author>
+							<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Ruofei</forename><surname>Zhang</surname></persName>
+						</author>
+						<author>
+							<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Ming</forename><surname>Zhou</surname></persName>
+						</author>
+						<title level="a" type="main">ProphetNet: Predicting Future N-gram for Sequence-to-Sequence Pre-training</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+
+		<encodingDesc>
+			<appInfo>
+				<application version="0.5.6" ident="GROBID" when="2020-09-16T11:15+0000">
+					<ref target="https://github.com/kermitt2/grobid">GROBID - A machine learning software for extracting information from scholarly documents</ref>
+				</application>
+			</appInfo>
+		</encodingDesc>		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>In this paper, we present a new sequence-tosequence pre-training model called ProphetNet, which introduces a novel self-supervised objective named future n-gram prediction and the proposed n-stream self-attention mechanism. Instead of the optimization of one-step ahead prediction in traditional sequence-to-sequence model, the ProphetNet is optimized by n-step ahead prediction which predicts the next n tokens simultaneously based on previous context tokens at each time step. The future n-gram prediction explicitly encourages the model to plan for the future tokens and prevent overfitting on strong local correlations. We pre-train ProphetNet using a base scale dataset (16GB) and a large scale dataset (160GB) respectively. Experimental results show Prophet-Net achieves the best performance on both abstractive summarization and question generation tasks compared to the models using the same base scale pre-training dataset. For the large scale dataset pre-training, ProphetNet achieves new state-ofthe-art results on Gigaword and comparable results on CNN/DailyMail using only about 1/5 pre-training epochs of the previous model.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">Introduction</head><p>Large-scale pre-trained language models <ref type="bibr" target="#b2">(Devlin et al., 2018;</ref><ref type="bibr" target="#b28">Radford et al., 2019;</ref><ref type="bibr" target="#b38">Yang et al., 2019)</ref> and sequenceto-sequence models <ref type="bibr" target="#b34">Song et al., 2019;</ref><ref type="bibr" target="#b29">Raffel et al., 2019)</ref> have achieved remarkable success in both natural language understanding (NLU) tasks and natural language generation (NLG) tasks. These methods are firstly pre-trained on large-scale unlabeled text data with specific self-supervised objectives and then fine-tuned to adapt to downstream tasks. We take ProphetNet decoder with future bigram prediction as an illustrated example here.</p><p>Autoregressive (AR) language modeling, which estimates the probability distribution of the text corpus, is widely used for sequence modeling and sequence-to-sequence (Seq2Seq) learning <ref type="bibr" target="#b35">(Sutskever et al., 2014)</ref>. Recently, it also becomes one of the successful self-supervised objectives for largescale pre-training as used in GPT-2 <ref type="bibr" target="#b28">(Radford et al., 2019)</ref>. Specifically, given a text sequence x = (x 1 , . . . , x T ), AR language modeling factorizes the likelihood into a product p(x) = T t=1 p(x t |x &lt;t ). In this manner, language models (LMs) and Seq2Seq models are usually trained by teacher forcing, where the models are optimized to predict the next token given all previous context tokens at each time step.</p><p>However, as discussed in previous works <ref type="bibr" target="#b25">(Pascanu et al., 2013;</ref><ref type="bibr" target="#b9">Gulcehre et al., 2017;</ref><ref type="bibr" target="#b33">Serdyuk et al., 2018)</ref>, AR-based models may prefer to focus on the latest tokens rather than capture long-term dependencies for the next token prediction. The reasons are as follows: (a) Local correlations such as bigram combination are usually stronger than long-term dependencies. (b) Teacher forcing, where the model focus on one-step ahead prediction for each time step, has no explicit bias toward future token planning and modeling. As a result, the model may learn a bias for language modeling, that is, the modeling of the local token combinations is overfitting but the global coherence and long-term dependency are underfitting <ref type="bibr" target="#b13">(Krueger et al., 2016;</ref><ref type="bibr" target="#b21">Merity et al., 2017;</ref><ref type="bibr" target="#b33">Serdyuk et al., 2018)</ref>. During inference, the generations tend to maintain local coherence but lack meaningful global structure <ref type="bibr" target="#b17">(Li et al., 2017;</ref><ref type="bibr" target="#b33">Serdyuk et al., 2018)</ref>, especially when we use greedy decoding instead of beam search.</p><p>In this paper, we present a new large-scale pre-trained arXiv:2001.04063v1 <ref type="bibr">[cs.CL]</ref> 13 Jan 2020</p><p>Seq2Seq model called ProphetNet with a novel selfsupervised objective future n-gram prediction. As shown in <ref type="figure" target="#fig_0">Figure 1</ref>, in addition to the traditional language model (LM) or Seq2Seq model that optimizes one-step ahead prediction, the ProphetNet also learns n-step ahead prediction which predicts the next n tokens simultaneously based on previous context tokens for each time step during training. This future n-gram prediction is served as extra guidance that explicitly encourages the model to plan for future tokens and prevent overfitting on strong local correlations. The hidden states of ProphetNet are forced to contain useful information that is able to not only help predict the next token but also further help predict multiple future tokens.</p><p>Our ProphetNet is based on Transformer <ref type="bibr" target="#b37">(Vaswani et al., 2017)</ref> encoder-decoder architecture. There are two goals when designing ProphetNet: (a) the model should be able to simultaneously predict the future n-gram at each time step in an efficient way during the training phase, and (b) the model can be easily converted to predict the next token only as original Seq2Seq model for inference or finetuning phase. To achieve that, we extend the two-stream self-attention proposed in XLNet  to nstream self-attention. ProphetNet contains a main stream self-attention which is the same as the self-attention in the original Transformer. Besides, we introduce n extra selfattention predicting streams for future n-gram prediction respectively. During training, the i-th predicting stream attends to the hidden states of the main stream to predict the next i-th future token, which guarantees every n continuous tokens in the target sequence are trained to predict at one time step.</p><p>Since the parameters of the main stream are shared with every predicting stream, we can disable the n-stream selfattention during inference and only the next first token is predicted for each time step, which is same as the original Transformer Seq2Seq model. For experiments, we use the proposed future n-gram prediction with the mask based auto-encoder denoising task <ref type="bibr" target="#b34">(Song et al., 2019;</ref><ref type="bibr" target="#b16">Lewis et al., 2019)</ref> which has been proved to be effective for Seq2Seq pre-training as compared in <ref type="bibr" target="#b29">Raffel et al. (2019)</ref> for Prophet-Net pre-training. We use two scale pre-trained datasets to pre-train ProphetNet, respectively: the base scale (16GB) dataset as used in BERT <ref type="bibr" target="#b2">(Devlin et al., 2018)</ref>, and the large scale (160GB) similar to BART . The pre-trained ProphetNet is further fine-tuned on several NLG tasks. Experimental results show that ProphetNet has achieved the best performance on CNN/DailyMail, Gigaword, and SQuAD 1.1 question generation tasks compared to the models using the same base scale pre-training dataset. For the large scale dataset pre-training experiment, Prophet-Net achieves comparable results on CNN/DailyMail and a new state-of-the-art results on Gigaword, using only about 1/5 pre-training epochs of BART and about 1/5 pre-training corpus of T5 <ref type="bibr" target="#b29">(Raffel et al., 2019)</ref> and PEGASUS .</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">ProphetNet</head><p>We propose a new Seq2Seq pre-training model called ProphetNet, which is based on Transformer <ref type="bibr" target="#b37">(Vaswani et al., 2017)</ref> Seq2Seq architecture. Compared to the original Transformer Seq2Seq model, ProphetNet introduces four modifications: (a) The novel self-supervised objective called future n-gram prediction as described in § 2.2. (b) The nstream self-attention mechanism as described in § 2.3. (c) The modified positional embedding as described in § 2.4. (d) The mask based auto-encoder denoising task for Seq2Seq pre-training as described in § 2.5. <ref type="figure">Figure 2</ref> shows the architecture of ProphetNet. Before we describe our model in detail, we first introduce the notations and sequence-tosequence learning.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.1.">Sequence-to-Sequence Learning</head><p>Given a text sequence pair (x, y), where x = (x 1 , . . . , x M ) is the source sequence with M tokens, and y = (y 1 , . . . , y T ) is the target sequence with T tokens. The Seq2Seq model aims to model the conditional likelihood p(y|x), which can be further factorized into a product p(y|x) = T t=1 p(y t |y &lt;t , x) according to the chain rule, where y &lt;t denotes the proceeding tokens before the position t. In general, the Seq2Seq model employs an encoder which aims to encode the source sequence representations, and a decoder which models the conditional likelihood with the source representations and previous target tokens as inputs. Teacher forcing is usually used for model training where the model is optimized to predict next target token y t given the previous golden context tokens y &lt;t and x at each time step.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.2.">Future N-gram Prediction</head><p>ProphetNet mainly changes the original Seq2Seq optimization of predicting next single token as p(y t |y &lt;t , x) into p(y t:t+n−1 |y &lt;t , x) at each time step t, where y t:t+n−1 denotes the next continuous n future tokens. In other words, the next n future tokens are predicted simultaneously.</p><p>Based on Transformer Seq2Seq architecture, ProphetNet contains a multi-layer Transformer encoder with the multihead self-attention mechanism <ref type="bibr" target="#b37">(Vaswani et al., 2017)</ref> and a multi-layer Transformer decoder with the proposed multihead n-stream self-attention mechanism. Given a source sequence x = (x 1 , . . . , x M ), ProphetNet encodes the x into a sequence representation, which is the same as the original Transformer encoder:</p><formula xml:id="formula_0">H enc = Encoder(x 1 , . . . , x M ),<label>(1)</label></formula><p>where H enc denotes the source sequence representations.  <ref type="figure">Figure 2</ref>. The architecture of ProphetNet. For simplicity, we take bigram (n = 2) as an example to introduce ProphetNet, whose modeling target is p(yt, yt+1|y&lt;t, x) for each time step. The left part shows the encoder of the ProphetNet which is the same as the original Transformer encoder. The right part presents the decoder of the ProphetNet which incorporates the proposed n-stream self-attention. For seq2seq pre-training, we present the example of inputs and outputs of the mask based auto-encoder denoising task. The token " " represents the mask symbol <ref type="bibr">[M]</ref>. Note that each xi and yi are the same in this task. The layer normalization and residual connection are ignored.</p><p>On the decoder side, instead of predicting only the next token at each time step like the original Transformer decoder, ProphetNet decoder predicts n future tokens simultaneously as we mentioned above: p(y t |y &lt;t , x), . . . , p(y t+n−1 |y &lt;t , x) = Decoder(y &lt;t , H enc ),</p><formula xml:id="formula_1">where 2 n N<label>(2)</label></formula><p>where the decoder outputs N probability at each time step. The future n-gram prediction objective can be further formalized as</p><formula xml:id="formula_2">L = − N −1 n=0 α n · T −n t=1 log p θ (y t+n |y &lt;t , x) = − α 0 · T t=1 log p θ (y t |y &lt;t , x) language modeling loss − N −1 n=1 α n · T −n t=1 log p θ (y t+n |y &lt;t , x) future n-gram loss<label>(3)</label></formula><p>The above future n-gram prediction objective can be seen to consist of two parts: (a) the conditional LM loss which is the same as the original teacher forcing, and (b) the N − 1 future token prediction losses which force the model to predict the future target tokens. The future n-gram prediction loss explicitly encourages the model to plan for future token prediction and prevent overfitting on strong local correlations. Furthermore, we assign the different weights α n to each loss as the trade-off between the traditional language modeling and future n-gram prediction. We can give higher weight to the closer future token prediction, which is similar to the discount factor of future reward in reinforcement learning <ref type="bibr" target="#b36">(Sutton et al., 1998)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.3.">N-Stream Self-Attention</head><p>Ideally, we want the ProphetNet decoder to meet two requirements: (a) the ProphetNet can simultaneously predict the future n-gram at each time step in an efficient way during the training phase, and (b) the model can be easily used to predict next n tokens or the next token only in the inference procedure as traditional Transformer decoder. However, the original Transformer decoder cannot be directly used for future n-gram prediction. As shown in the <ref type="figure">Figure 3</ref>, in addition to the masked multi-head self-attention <ref type="bibr" target="#b37">(Vaswani et al., 2017)</ref> of the original transformer decoder which is called</p><formula xml:id="formula_3">Attention Q K, V 2 (1) ℎ 1 (0) 1 (0) 1 (0) 2 (0) 2 (0) ℎ 0 (0) 0 (0) 0 (0) 2 (1) ℎ 2 (1) ( 0 ) [ 1 ] N-stream self-attention [ 2 ]</formula><p>ℎ 1</p><p>(2) 1</p><p>(2) 1</p><p>(2) ℎ 2</p><p>(2) 2</p><p>(2) 2</p><p>(2) ℎ 0</p><p>(2) 0</p><p>(2) 0</p><p>(2)</p><formula xml:id="formula_4">2 1 3 2 4 3 ℎ 1 (0) 1 (0) 1 (0) ℎ 2 (0) 2 (0) 2 (0) ℎ 0 (0) 0 (0) 0 (0) ( 1 ) [ 1 ] ( 2 ) [ 1 ] [ 2 ]</formula><p>N-stream self-attention</p><formula xml:id="formula_5">ℎ 1 (1) 1 (1) 1 (1) ℎ 2 (1) 2 (1) 2 (1) ℎ 0 (1) 0 (1) 0 (1) N-stream self-attention Attention Q K, V ℎ 1 (0) 1 (0) 1 (0) ℎ 2 (0) 2 (0) 2 (0) ℎ 0 (0) 0 (0) 0 (0) 2 (1) ℎ 2 (1) 2 (1) (a) Attention Q K, V ℎ 1 (0) 1 (0) 1 (0) ℎ 2 (0) 2 (0) 2 (0) ℎ 0 (0) 0 (0) 0 (0) 2 (1) ℎ 2 (1) 2 (1) (b) (c) (d) 3 4 ℎ 2 (0) [ 2 ]</formula><p>Figure 3. N-stream self-attention mechanism which contains a main stream self-attention and n predicting stream self-attention. For simplicity sake, we take 2-stream self-attention (n = 2) as an example here. <ref type="figure">Figure</ref>  main stream self-attention here, the n-stream self-attention mechanism incorporates n extra self-attention predicting streams which are used to predict next n continuous future tokens respectively at each time step. To be concrete, the k-th predicting stream is responsible for modeling the probability p(y t+k−1 |y &lt;t , x).</p><p>As discussed in <ref type="bibr" target="#b37">(Vaswani et al., 2017)</ref>, an attention function maps a query and a set of key-value pairs to an output as:</p><formula xml:id="formula_6">Attention(Q,K,V ) = Softmax(QK T √ d k )V ,<label>(4)</label></formula><p>where the queriesQ, keysK, and valuesV are all vectors. The input consists of queries and keys of dimension d k .</p><p>Multi-head attention mechanism further projects queries, keys, and values to h different representation subspaces as</p><formula xml:id="formula_7">MultiHead(Q,K,V ) = Concat(head 1 , ..., head h )W O ,<label>(5)</label></formula><formula xml:id="formula_8">where head i = Attention(QW Q i ,KW K i ,V W V i ),<label>(6)</label></formula><p>where</p><formula xml:id="formula_9">W O , W Q i , W K i , W V i are trainable parameters.</formula><p>The n-stream self-attention mechanism is shown in <ref type="figure">Figure 3</ref>. As shown in <ref type="figure">Figure 3</ref> (a), the attention mechanism of the main stream is the same as the masked multi-head selfattention in the traditional Transformer decoder, where a lower triangular matrix is set to control that each position can only attend to their previous tokens:</p><formula xml:id="formula_10">H (k+1) = MultiHead(H (k) , H (k) , H (k) ),<label>(7)</label></formula><p>here we use</p><formula xml:id="formula_11">H k = (h (k) 0 , . . . , h<label>(k)</label></formula><p>T ) to denote the sequence of the k-th layer hidden state of the main stream.</p><p>The i-th predicting stream predicts the next i-th token based on the previous main stream hidden states at each time step. In other words, the i-th predicting stream predicts the y t based on the previous tokens y &lt;t−i+1 . For simplicity sake, we take bigram (n = 2) as an example to introduce, whose modeling target is p(y t , y t+1 |y &lt;t , x) for each time step. In this case, we have 1-st predicting stream as shown in <ref type="figure">Figure 3</ref> (b), and 2-nd predicting stream which is shown in <ref type="figure">Figure 3</ref> (c). As shown in <ref type="figure">Figure 3</ref> (d), we use the trainable vector p i as the initialize input for i-th predicting stream. The hidden state of the 1-st predicting stream is calculated as:</p><formula xml:id="formula_12">g (k+1) t = Attention(g (k) t , H (k) ≤t ⊕ g (k) t , H (k) ≤t ⊕ g (k) t ).<label>(8)</label></formula><p>where g (k+1) t denotes the k + 1-th layer hidden state of the 1-st predicting stream at time step t, and ⊕ denotes concatenation operation. To calculate g</p><formula xml:id="formula_13">(k+1) t , g (k) t</formula><p>is taken as the attention query while the attention value and key are previous t hidden states of the main stream. Besides we take g (k) t as attention value and key to make the g (k+1) t be position-aware. The g (k+1) t is finally used to predict y t+1 .</p><p>Similarly, the hidden state of the 2-nd predicting stream is calculated by:</p><formula xml:id="formula_14">s (k+1) t = Attention(s (k) t , H (k) ≤t ⊕ s (k) t , H (k) ≤t ⊕ s (k) t ). (9)</formula><p>where s (k+1) t denotes the k + 1-th layer hidden state of the 2-nd predicting stream at time step t, which will be finally used to predict y t+2 .</p><p>We share the parameters of each predicting stream and main stream during training. Therefore, we can easily convert the ProphetNet decoder to the traditional Transformer decoder by disabling all the predicting streams during inference or fine-tuning.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.4.">Positional Embedding</head><p>We use the special trainable vector p i rather than the last token embedding to initialize the token embedding. However, the model does not directly know its previous token and might be more dependent on the positional information. Thus besides the absolute positional embedding, we add the additional relative positional logits in the decoder selfattention calculation procedure which is the same as used in T5 <ref type="bibr" target="#b29">(Raffel et al., 2019)</ref>. For mask based auto-encoder denoising tasks, the absolute positions of the decoder input tokens are their absolute positions of the original sentence.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.5.">Seq2Seq Pre-training on Denoising Task</head><p>Since it is difficult to obtain the large scale paired text corpus, we pre-train the ProphtNet on the large scale unlabeled text corpus with the auto-encoder denoising task which is widely used for Seq2Seq pre-training <ref type="bibr" target="#b34">(Song et al., 2019;</ref><ref type="bibr" target="#b16">Lewis et al., 2019;</ref><ref type="bibr" target="#b29">Raffel et al., 2019)</ref>. In general, the denoising Seq2Seq pre-training task requires the seq2seq model to learn to reconstruct the original text given the corrupted original text.</p><p>There are several noise functions used to corrupt the original text, such as random token masking, token deleting, token shuffling, and token span masking. In this paper, we only consider token span masking which is the same as the MASS <ref type="bibr" target="#b34">(Song et al., 2019)</ref>. As shown in <ref type="figure">Figure 2</ref>, we mask out some token spans of the original text as the encoder input, and the model learns to recover the masked tokens. Besides, unlike MASS learns to recover one next token at each time step, ProphetNet learns to recover the next n future tokens within each masked token span.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Experiments and Results</head><p>In this section, we describe the experimental details and results. We first describe the details of ProphetNet pretraining in § 3.1. Then we fine-tune the ProphetNet on two downstream NLG tasks including text summarization as described in § 3.2 and question generation as reported in § 3.3. we report the experiment of large-scale pre-training in § 3.4.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.1.">ProphetNet Pre-training</head><p>Model Configuration Our model is based on Transformer <ref type="bibr" target="#b37">(Vaswani et al., 2017)</ref> encoder-decoder structure. We pre-train the ProphetNet which contains 12-layer encoder and 12-layer decoder with 1024 embedding/hidden size and 4096 feed-forward filter size. The batch size and training steps are set to 1024 and 500,000, respectively. Our implementation is based on FAIRSEQ 1 . Our preliminary experiments show that the ProphetNet with future trigram prediction (n=3) performs slightly better than bigram (n=2). However, the training of bigram is 15% faster than that of the trigram. Considering the training cost, we set the n to be 2 for ProphetNet in the following experiments.</p><p>Pre-Training Dataset Following BERT <ref type="bibr" target="#b2">(Devlin et al., 2018)</ref>, we use BookCorpus <ref type="bibr" target="#b44">(Zhu et al., 2015)</ref> and English Wikipedia (16GB in total) to pre-train ProphetNet. The Pre-training of ProphetNet on this 16GB dataset with 500K steps takes about two weeks with 16×32GB NVIDIA V100 GPUs. Note that we also pre-train ProphetNet on a larger scale dataset which is described in § 3.4.</p><p>Pre-Training Setting Both the encoder input length and decoder input length of ProphetNet are set to 512 tokens. Following the pre-training settings in MASS <ref type="bibr" target="#b34">(Song et al., 2019)</ref>, we randomly pick a starting position u in every 64 tokens, and then mask a continuous span from u. 80% of the masked tokens are replaced by <ref type="bibr">[M]</ref>, 10% replaced by random tokens, and 10% unchanged. The masked length is set to 15% of the total number of tokens.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.2.">Fine-Tuning on Text Summarization</head><p>As a typical NLG task, abstractive text summarization aims to generate a short and fluent summary of a long text document. We fine-tune and evaluate ProphetNet on the two widely used text summarization dataset: (a) the nonanonymized version of the CNN/DailyMail dataset <ref type="bibr" target="#b32">(See et al., 2017)</ref>, and (b) Gigaword corpus <ref type="bibr" target="#b31">(Rush et al., 2015)</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>CNN/DailyMail</head><p>We use Adam optimzier <ref type="bibr" target="#b11">(Kingma &amp; Ba, 2015)</ref> with a peak learning rate 1 × 10 −4 to fine-tune ProphetNet on CNN/DailyMail. The batch size, the learning rate warmup steps, and the total fine-tune epoch are set to 512, 1000, and 10, respectively. During inference, we limit the length of the output to between 45 and 110 tokens with 1.2 length penalty. We set beam size to 5 and remove the duplicated trigrams in beam search <ref type="bibr" target="#b7">(Fan et al., 2017)</ref>.</p><p>We compare our ProphetNet against following baselines: LEAD-3 <ref type="bibr" target="#b22">(Nallapati et al., 2016)</ref> which takes the first three sentences as the summary; PTGEN <ref type="bibr" target="#b32">(See et al., 2017)</ref> which is Seq2Seq model incorporated with the pointergenerator network; PTGEN+Coverage <ref type="bibr" target="#b32">(See et al., 2017)</ref> which introduce a coverage mechanism to PTGEN; Bottom-Up <ref type="bibr" target="#b8">(Gehrmann et al., 2018)</ref> which employs a bottom-up content selector based on Seq2Seq model; S2S-ELMo <ref type="bibr" target="#b6">(Edunov et al., 2019)</ref> which uses the pre-trained ELMo <ref type="bibr" target="#b26">(Peters et al., 2018)</ref> representations. Besides, we also compare our method with several pre-training based strong baselines: BERTSUMABS <ref type="bibr" target="#b19">(Liu &amp; Lapata, 2019)</ref>, MASS <ref type="bibr" target="#b34">(Song et al., 2019)</ref>, and UniLM <ref type="bibr" target="#b3">(Dong et al., 2019)</ref>. Note that these pre-training based strong baselines are all pre-trained on 16GB BookCorpus + English Wikipedia dataset, which is the same dataset as we used for ProphetNet pre-training.</p><p>Following <ref type="bibr" target="#b32">See et al. (2017)</ref>, we report the F1 scores of ROUGE-1, ROUGE-2 and ROUGE-L <ref type="bibr" target="#b18">(Lin, 2004)</ref>. The results are presented in <ref type="table">Table 3</ref>.1. From the results, we can see that the ProphetNet achieves the best performance on all metrics.</p><p>Gigaword We follow the data pre-processing of UniLM <ref type="bibr" target="#b3">(Dong et al., 2019)</ref> to fine-tune ProphetNet on Gigaword. We use Adam optimzier <ref type="bibr" target="#b11">(Kingma &amp; Ba, 2015)</ref> with a peak learning rate 1 × 10 −4 . The batch size is set to 128 and warm up steps to 1000. We fine-tune model 4 epochs with future bigram prediction training. During inference, we set the length penalty to 1.5 and beam size to 5.</p><p>Following UniLM <ref type="bibr" target="#b3">(Dong et al., 2019)</ref>, we compare our ProphetNet against following baselines: OpenNMT <ref type="bibr" target="#b12">(Klein et al., 2017)</ref> which implements the standard Seq2Seq model with attention mechanism; Re2Sum <ref type="bibr" target="#b1">(Cao et al., 2018)</ref> which employs an extended Seq2Seq model to generate summaries based on the retrieved candidate summaries. And two pre-training based strong baselines: MASS <ref type="bibr" target="#b34">(Song et al., 2019)</ref>, and UniLM <ref type="bibr" target="#b3">(Dong et al., 2019)</ref>. The results are presented in <ref type="table">Table 2</ref>. It can be observed that ProphetNet outperforms previous models on all metrics.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.3.">Fine-Tuning on Question Generation</head><p>Recently, the answer-aware question generation task  attracts a lot of attention in NLG, which aims to generate a question that asks towards the given answer span based on a given text passage or document. We conduct experiments on this task to further evaluate the ProphetNet model. Following <ref type="bibr" target="#b5">Du et al. (2017)</ref>, we split the SQuAD 1.1 <ref type="bibr" target="#b30">(Rajpurkar et al., 2016)</ref> dataset into training, development and test sets. We also report the results on the data split as did in <ref type="bibr" target="#b42">Zhao et al. (2018)</ref>, which reverses the development set and test set.  <ref type="table">Table 3</ref>. Results on SQuAD 1.1 test set. B4 is short for BLEU-4, MTR is short for METEOR, and R-L is short for ROUGE-L. Model is fine tuned 5 epochs, and the same model is used to generate the results for the two groups of results which use swapped dev and test set.</p><p>The question generation task is typically formulated as a Seq2Seq problem. The input passage and the answer are packed as "answer [SEP] input passage" as input, and the question is used as the target output sequence. We fine-tune the ProphetNet model 5 epochs in the training set and report the results of the two kinds of data splits as mentioned above.</p><p>The first 512 tokens of the passage are fed to the model. The peak learning rate is 1 × 10 −5 and the batch size is set to 28.</p><p>Following <ref type="bibr" target="#b3">Dong et al. (2019)</ref>, we compare our model against the following models: CorefNQG <ref type="bibr" target="#b4">(Du &amp; Cardie, 2018)</ref> which employs a feature-rich encoder based on Seq2Seq model; MP-GSN <ref type="bibr" target="#b42">(Zhao et al., 2018)</ref> which incorporates a gated self-attention encoder with maxout pointer; SemQG <ref type="bibr" target="#b41">(Zhang &amp; Bansal, 2019)</ref> which introduces two semantics-enhanced rewards for Seq2Seq model training. Besides, we also compare our model with UniLM <ref type="bibr" target="#b3">(Dong et al., 2019)</ref> which is the previous state-of-the-art on this task. Following <ref type="bibr" target="#b3">Dong et al. (2019)</ref>, we use the <ref type="bibr">BLEU-4 (Papineni et al., 2002)</ref>, METEOR <ref type="bibr" target="#b0">(Banerjee &amp; Lavie, 2005)</ref> and ROUGE-L <ref type="bibr" target="#b18">(Lin, 2004</ref>) metrics for evaluation.</p><p>The results are shown in <ref type="table">Table 3</ref>. It can be seen that our ProphetNet model outperforms all previous question generation methods on all metrics, achieving a new state-of-the-art for question generation on the SQuAD 1.1 dataset.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.4.">Large-scale Pre-training</head><p>Recent works show that the performance of the pre-trained model on the downstream task can be improved when using larger scaled pre-training corpora <ref type="bibr" target="#b29">Raffel et al., 2019)</ref>. We also pre-train ProphetNet on the 160GB English language corpora of news, books, stories and web text, which is similar 2 to the corpus used in BART . The model configuration is the same as described in § 3.1. We fine-tune the ProphetNet on two downstream tasks CNN/DailyMail and Gigaword after pre-training, where the setting is the same as described in § 3.2. We compare ProphetNet (160GB) against the following strong baselines: T5 <ref type="bibr" target="#b29">(Raffel et al., 2019)</ref> which is pre-trained on the text corpus of 750GB; PEGASUS LARGE  which is pre-trained on the text corpus of 750GB and 3800GB, respectively; And BART  which is pretrained on the similar dataset as the ProphetNet (160GB).</p><p>The results are shown in <ref type="table" target="#tab_4">Table 4</ref>. Because the model pretraining on this 160GB dataset is extremely time-consuming even if we use 16 × 32GB NVIDIA V100 GPUs, this paper we report the performance of the pre-trained ProphetNet, which has only been pre-trained for 16 days with 8.5 epochs.</p><p>It should be noted that the number of this pre-trained epoch is only about 1/5 of the BART pre-training. Our experiments also show that at this pre-training epoch, the performance of the downstream tasks of ProphetNet is not convergence as shown in <ref type="figure" target="#fig_3">Figure 4</ref>. Nevertheless, it is surprising that our model still achieves comparable performance on CNN/DailyMail compared to other baselines. The ROUGE-L on CNN/DailyMail of ProphetNet is the highest. Moreover, ProphetNet (160GB) outperforms PEGASUS LARGE (C4 750GB) and PEGASUS LARGE (HugeNews 3800GB) using only about 1/5 and 1/20 of the pre-training corpus, respectively. To the best of our knowledge, ProphetNet achieves a new state-of-the-art result on the Gigaword.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">Related Work</head><p>Unsupervised pre-training has been successfully applied to various natural language processing tasks <ref type="bibr" target="#b27">(Radford et al., 2018;</ref><ref type="bibr" target="#b2">Devlin et al., 2018;</ref><ref type="bibr" target="#b10">Joshi et al., 2019;</ref><ref type="bibr" target="#b14">Lan et al., 2019;</ref><ref type="bibr" target="#b38">Yang et al., 2019;</ref><ref type="bibr" target="#b29">Raffel et al., 2019;</ref><ref type="bibr" target="#b3">Dong et al., 2019;</ref><ref type="bibr" target="#b34">Song et al., 2019;</ref><ref type="bibr" target="#b16">Lewis et al., 2019)</ref>. GPT <ref type="bibr" target="#b27">(Radford et al., 2018)</ref> takes plain text as pre-training data to predict the next tokens with leftward tokens. It is based on the left-to-right language model and can be used to generate stories and continue to write for a given text. BERT <ref type="bibr" target="#b2">(Devlin et al., 2018)</ref> and SpanBERT ) use a Bidirectional language model to recover masked tokens/spans for a given sentence. Bi-directional information flow can be used to recover the masked positions, but no left-to-right language model dependency is learned. As a result, BERT and SpanBERT bring significant improvement for NLU tasks but are not suitable for generation tasks. XLNet  predicts the tokens with given positions and some tokens with their positions in the sentence in an AR manner. Although it uses AR to build a permuted-ordered language model, it is also not suitable for NLG tasks because it brought too much noise for a left-to-right language model. MASS <ref type="bibr" target="#b34">(Song et al., 2019)</ref>    to-sequence model by dropping a continuous token span to corrupt the original text and learns to recover it. T5 <ref type="bibr" target="#b29">(Raffel et al., 2019)</ref> investigates different model structures and different pre-training tasks, and is pre-trained on a large scale corpus named C4 which is 750GB. BART  uses the encoder-decoder structure to generate the original sentence with its spoiled input to denoise. In the BART decoder, the undamaged language model is learned thus brings improvement to NLG tasks.</p><p>Natural language generation methods are typically based on the left-to-right or right-to-left language models and generate one token in each time step. These methods can not capture the information of future tokens. Recently, incorporating future information into language generation tasks has attracted the attention of researchers <ref type="bibr" target="#b17">(Li et al., 2017;</ref><ref type="bibr" target="#b33">Serdyuk et al., 2018;</ref><ref type="bibr" target="#b15">Lawrence et al., 2019)</ref>. <ref type="bibr" target="#b17">Li et al. (2017)</ref> propose an actor-critic model which designs a value function as a critic to estimate the future success. In their method, they not only consider the MLE-based learning but also incorporate an RL-based value function into the decoder process. <ref type="bibr" target="#b33">Serdyuk et al. (2018)</ref> point out traditional Recurrent Neural Networks (RNNs) may prefer to generate each token based on the recent tokens, it is hard to learn the long-term dependencies. To capture the future information and learn the long-term dependencies, they run the forward RNN and backward RNN in parallel. <ref type="bibr" target="#b15">Lawrence et al. (2019)</ref> concatenates the source and target to train an encoder instead of encoder-decoder architecture. They use special placeholder tokens to replace some tokens of the target for the model training process. At the inference process, they generate the target by replacing each placeholder token.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Conclusion</head><p>In this paper, we introduce ProphetNet, a sequence-tosequence pretraining model that learns to predict future n-gram at each time step. ProphetNet achieves the best performance on both abstractive summarization and question generation tasks compared to the models using the same base scale pre-training dataset. Furthermore, ProphetNet achieves comparable results on CNN/DailyMail and a new state-of-the-art results on Gigaword using only about 1/5 the pre-training epochs of the previous model.</p><p>For future work, we will apply the proposed ProphetNet to more downstream NLG tasks and NLU tasks. We also plan to pre-train ProphetNet with other pre-training tasks and larger datasets such as C4.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>Figure 1 .</head><label>1</label><figDesc>Traditional language model (left) and ProphetNet (right).</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head></head><label></label><figDesc>(a) presents the attention process of the main stream self-attention. Figure (b) and Figure (c) show the attention process of 1-st predicting stream and 2-nd predicting stream, respectively. Figure (d) shows the inputs, outputs, and the whole multi-layer n-stream self-attention.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>Figure 4 .</head><label>4</label><figDesc>Performance increase on CNN/DailyMail dataset as ProphetNet pre-trains for more epochs on 160GB large-scale dateset.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_1" validated="false"><head></head><label></label><figDesc>Table 1. Results on the CNN/DailyMail test set.</figDesc><table>Method 
+ROUGE-1 ROUGE-2 ROUGE-L 
+
+LEAD-3 (Nallapati et al., 2017) 
+40.42 
+17.62 
+36.67 
+PTGEN (See et al., 2017) 
+39.53 
+17.28 
+37.98 
+PTGEN+Coverage (See et al., 2017) 
+39.53 
+17.28 
+36.38 
+S2S-ELMo (Edunov et al., 2019) 
+41.56 
+18.94 
+38.47 
+Bottom-Up (Gehrmann et al., 2018) 
+41.22 
+18.68 
+38.34 
+BERTSUMABS (Liu &amp; Lapata, 2019) 
+41.72 
+19.39 
+38.76 
+BERTSUMEXTABS (Liu &amp; Lapata, 2019) 
+42.13 
+19.60 
+39.18 
+MASS (Song et al., 2019) 
+42.12 
+19.50 
+39.01 
+UniLM (Dong et al., 2019) 
+43.33 
+20.21 
+40.51 
+ProphetNet 
+43.68 
+20.64 
+40.72 
+
+</table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_2" validated="false"><head></head><label></label><figDesc>Table 2. Results on Gigaword test set. R is short for ROUGE.</figDesc><table>Method 
+R-1 
+R-2 
+R-L 
+
+OpenNMT (Klein et al., 2017) 36.73 17.86 33.68 
+Re2Sum (Cao et al., 2018) 
+37.04 19.03 34.46 
+MASS (Song et al., 2019) 
+37.66 18.53 34.89 
+UniLM (Dong et al., 2019) 
+38.45 19.45 35.75 
+ProphetNet 
+39.23 20.36 36.57 
+
+</table></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" type="table" xml:id="tab_4" validated="false"><head>Table 4 .</head><label>4</label><figDesc>pre-trains the sequence-C4)(Zhang et al.,  2019) 750GB 43.90 21.20 40.76 PEGASUSLARGE (HugeNews) (Zhang et al., 2019) 3800GB 44.17 21.47 41.11 BART (Lewis et al., 2019) 160GB 44.16 21.28 40.90 ProphetNet 160GB 44.14 21.16 41.27 HugeNews) (Zhang et al., 2019) 3800GB 39.12 19.86 36.24 ProphetNet 160GB 39.34 20.47 36.57 Results on the CNN/DailyMail and Gigaword test sets of large-scale pre-training models. R is short for ROUGE, and Corpus denotes the size of the pre-training data.</figDesc><table>Dataset 
+Method 
+Corpus 
+R-1 
+R-2 
+R-L 
+
+CNN/DailyMail 
+
+T5 (Raffel et al., 2019) 
+750GB 43.52 21.55 40.69 
+PEGASUSLARGE (Gigaword 
+
+PEGASUSLARGE (C4) (Zhang et al., 2019) 
+750GB 38.75 19.96 36.14 
+PEGASUSLARGE (</table></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="1">https://github.com/pytorch/fairseq.</note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2">Due to CC-News is not officially released, we use similar public news corpus REALNEWS<ref type="bibr" target="#b39">(Zellers et al., 2019)</ref> </note>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Meteor: An automatic metric for mt evaluation with improved correlation with human judgments</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">S</forename><surname>Banerjee</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">A</forename><surname>Lavie</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the acl workshop on intrinsic and</title>
+		<meeting>the acl workshop on intrinsic and</meeting>
+		<imprint>
+			<date type="published" when="2005" />
+			<biblScope unit="page" from="65" to="72" />
+		</imprint>
+	</monogr>
+	<note>extrinsic evaluation measures for machine translation and/or summarization</note>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">Retrieve, rerank and rewrite: Soft template based neural summarization</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Z</forename><surname>Cao</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">W</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">S</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Wei</forename></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">F</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">In ACL</title>
+		<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Pre-training of deep bidirectional transformers for language understanding</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">J</forename><surname>Devlin</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">M.-W</forename><surname>Chang</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">K</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">K</forename><surname>Toutanova</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><surname>Bert</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">NAACL</title>
+		<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Unified language model pre-training for natural language understanding and generation</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">L</forename><surname>Dong</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">N</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">W</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">F</forename><surname>Wei</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">X</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Y</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">J</forename><surname>Gao</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">M</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">H.-W</forename><surname>Hon</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">NeurIPS</title>
+		<imprint>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Harvesting paragraph-level questionanswer pairs from wikipedia</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">X</forename><surname>Du</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">C</forename><surname>Cardie</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">ACL</title>
+		<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<monogr>
+		<title level="m" type="main">Learning to ask: Neural question generation for reading comprehension</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">X</forename><surname>Du</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">J</forename><surname>Shao</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Cardie</forename></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">C</forename></persName>
+		</author>
+		<idno type="arXiv">arXiv:1705.00106</idno>
+		<imprint>
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<monogr>
+		<title level="m" type="main">Pre-trained language model representations for language generation</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">S</forename><surname>Edunov</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">A</forename><surname>Baevski</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Auli</forename></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">M</forename></persName>
+		</author>
+		<idno type="arXiv">arXiv:1903.09722</idno>
+		<imprint>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+				<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">A</forename><surname>Fan</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">D</forename><surname>Grangier</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Auli</forename></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">M</forename></persName>
+		</author>
+		<idno type="arXiv">arXiv:1711.05217</idno>
+		<title level="m">Controllable abstractive summarization</title>
+		<imprint>
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Bottom-up abstractive summarization</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">S</forename><surname>Gehrmann</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Y</forename><surname>Deng</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">A</forename><forename type="middle">M</forename><surname>Rush</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">In EMNLP</title>
+		<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Plan, attend, generate: Planning for sequence-to-sequence models</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">C</forename><surname>Gulcehre</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">F</forename><surname>Dutil</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">A</forename><surname>Trischler</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Y</forename><surname>Bengio</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">NIPS</title>
+		<imprint>
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<monogr>
+				<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">M</forename><surname>Joshi</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">D</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Y</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">D</forename><forename type="middle">S</forename><surname>Weld</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">L</forename><surname>Zettlemoyer</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">O</forename><surname>Levy</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><surname>Spanbert</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1907.10529</idno>
+		<title level="m">Improving pre-training by representing and predicting spans</title>
+		<imprint>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">A method for stochastic optimization</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">D</forename><forename type="middle">P</forename><surname>Kingma</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">J</forename><surname>Ba</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><surname>Adam</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">ICLR</title>
+		<imprint>
+			<date type="published" when="2015" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Opennmt: Open-source toolkit for neural machine translation</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">G</forename><surname>Klein</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Y</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Y</forename><surname>Deng</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">J</forename><surname>Senellart</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">A</forename><forename type="middle">M</forename><surname>Rush</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">ACL</title>
+		<imprint>
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<monogr>
+				<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">D</forename><surname>Krueger</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">T</forename><surname>Maharaj</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">J</forename><surname>Kramár</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">M</forename><surname>Pezeshki</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">N</forename><surname>Ballas</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">N</forename><forename type="middle">R</forename><surname>Ke</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">A</forename><surname>Goyal</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Y</forename><surname>Bengio</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">A</forename><surname>Courville</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">C</forename><surname>Pal</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><surname>Zoneout</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1606.01305</idno>
+		<title level="m">Regularizing rnns by randomly preserving hidden activations</title>
+		<imprint>
+			<date type="published" when="2016" />
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<monogr>
+		<title level="m" type="main">Albert: A lite bert for self-supervised learning of language representations</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Z</forename><surname>Lan</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">M</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">S</forename><surname>Goodman</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">K</forename><surname>Gimpel</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">P</forename><surname>Sharma</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">R</forename><surname>Soricut</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1909.11942</idno>
+		<imprint>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<monogr>
+		<title level="m" type="main">Attending to future tokens for bidirectional sequence generation</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">C</forename><surname>Lawrence</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">B</forename><surname>Kotnis</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">M</forename><surname>Niepert</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1908.05915</idno>
+		<imprint>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<title level="m" type="main">Denoising sequence-to-sequence pre-training for natural language generation, translation, and comprehension</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">M</forename><surname>Lewis</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Y</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">N</forename><surname>Goyal</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">M</forename><surname>Ghazvininejad</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">A</forename><surname>Mohamed</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">O</forename><surname>Levy</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">V</forename><surname>Stoyanov</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">L</forename><surname>Zettlemoyer</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><surname>Bart</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1910.13461</idno>
+		<imprint>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<monogr>
+		<title level="m" type="main">Learning to decode for future success</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">J</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">W</forename><surname>Monroe</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Jurafsky</forename></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">D</forename></persName>
+		</author>
+		<idno type="arXiv">arXiv:1701.06549</idno>
+		<imprint>
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Rouge: A package for automatic evaluation of summaries</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">C.-Y</forename><surname>Lin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Text summarization branches out</title>
+		<imprint>
+			<date type="published" when="2004" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<title level="m" type="main">Text summarization with pretrained encoders</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Y</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">M</forename><surname>Lapata</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1908.08345</idno>
+		<imprint>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<monogr>
+				<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Y</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">M</forename><surname>Ott</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">N</forename><surname>Goyal</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">J</forename><surname>Du</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">M</forename><surname>Joshi</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">D</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">O</forename><surname>Levy</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">M</forename><surname>Lewis</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">L</forename><surname>Zettlemoyer</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">V</forename><surname>Stoyanov</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><surname>Roberta</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1907.11692</idno>
+		<title level="m">A robustly optimized bert pretraining approach</title>
+		<imprint>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<monogr>
+		<title level="m" type="main">Regularizing and optimizing lstm language models</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">S</forename><surname>Merity</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">N</forename><forename type="middle">S</forename><surname>Keskar</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">R</forename><surname>Socher</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1708.02182</idno>
+		<imprint>
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<monogr>
+		<title level="m" type="main">Abstractive text summarization using sequence-to-sequence rnns and beyond</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">R</forename><surname>Nallapati</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">B</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">C</forename><surname>Gulcehre</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">B</forename><surname>Xiang</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1602.06023</idno>
+		<imprint>
+			<date type="published" when="2016" />
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Summarunner: A recurrent neural network based sequence model for extractive summarization of documents</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">R</forename><surname>Nallapati</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">F</forename><surname>Zhai</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">B</forename><surname>Zhou</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">AAAI</title>
+		<imprint>
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Bleu: a method for automatic evaluation of machine translation</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">K</forename><surname>Papineni</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">S</forename><surname>Roukos</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">T</forename><surname>Ward</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">W.-J</forename><surname>Zhu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">ACL</title>
+		<imprint>
+			<date type="published" when="2002" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">On the difficulty of training recurrent neural networks</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">R</forename><surname>Pascanu</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">T</forename><surname>Mikolov</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Y</forename><surname>Bengio</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">ICML</title>
+		<imprint>
+			<date type="published" when="2013" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Deep contextualized word representations</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">M</forename><forename type="middle">E</forename><surname>Peters</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">M</forename><surname>Neumann</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">M</forename><surname>Iyyer</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">M</forename><surname>Gardner</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">C</forename><surname>Clark</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">K</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">L</forename><surname>Zettlemoyer</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">NAACL</title>
+		<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<monogr>
+		<title level="m" type="main">Improving language understanding by generative pre-training</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">A</forename><surname>Radford</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">K</forename><surname>Narasimhan</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">T</forename><surname>Salimans</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">I</forename><surname>Sutskever</surname></persName>
+		</author>
+		<ptr target="https://s3-us-west-2.amazonaws.com/openai-assets/research-covers/languageunsupervised/languageunderstandingpaper.pdf" />
+		<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Language models are unsupervised multitask learners</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">A</forename><surname>Radford</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">J</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">R</forename><surname>Child</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">D</forename><surname>Luan</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">D</forename><surname>Amodei</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">I</forename><surname>Sutskever</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">OpenAI Blog</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">8</biblScope>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<monogr>
+		<title level="m" type="main">Exploring the limits of transfer learning with a unified text-to-text transformer</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">C</forename><surname>Raffel</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">N</forename><surname>Shazeer</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">A</forename><surname>Roberts</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">K</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">S</forename><surname>Narang</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">M</forename><surname>Matena</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Y</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">W</forename><surname>Li</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">P</forename><forename type="middle">J</forename><surname>Liu</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1910.10683</idno>
+		<imprint>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Squad: 100,000+ questions for machine comprehension of text</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">P</forename><surname>Rajpurkar</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">J</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">K</forename><surname>Lopyrev</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">P</forename><surname>Liang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">EMNLP</title>
+		<imprint>
+			<date type="published" when="2016" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<monogr>
+		<title level="m" type="main">A neural attention model for abstractive sentence summarization</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">A</forename><forename type="middle">M</forename><surname>Rush</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">S</forename><surname>Chopra</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Weston</forename></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">J</forename></persName>
+		</author>
+		<idno type="arXiv">arXiv:1509.00685</idno>
+		<imprint>
+			<date type="published" when="2015" />
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">Get to the point: Summarization with pointer-generator networks</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">A</forename><surname>See</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">P</forename><forename type="middle">J</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">C</forename><forename type="middle">D</forename><surname>Manning</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">ACL</title>
+		<imprint>
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Twin networks: Matching the future for sequence generation</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">D</forename><surname>Serdyuk</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">N</forename><forename type="middle">R</forename><surname>Ke</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">A</forename><surname>Sordoni</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">A</forename><surname>Trischler</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">C</forename><surname>Pal</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Y</forename><surname>Bengio</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">In ICLR</title>
+		<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<monogr>
+		<title level="m" type="main">Masked sequence to sequence pre-training for language generation</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">K</forename><surname>Song</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">X</forename><surname>Tan</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">T</forename><surname>Qin</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">J</forename><surname>Lu</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">T.-Y</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><surname>Mass</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1905.02450</idno>
+		<imprint>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">Sequence to sequence learning with neural networks</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">I</forename><surname>Sutskever</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">O</forename><surname>Vinyals</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Q</forename><forename type="middle">V</forename><surname>Le</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">NIPS</title>
+		<imprint>
+			<date type="published" when="2014" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<monogr>
+		<title level="m" type="main">Introduction to reinforcement learning</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">R</forename><forename type="middle">S</forename><surname>Sutton</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">A</forename><forename type="middle">G</forename><surname>Barto</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="1998" />
+			<publisher>MIT press Cambridge</publisher>
+			<biblScope unit="volume">2</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">Attention is all you need</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">A</forename><surname>Vaswani</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">N</forename><surname>Shazeer</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">N</forename><surname>Parmar</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">J</forename><surname>Uszkoreit</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">L</forename><surname>Jones</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">A</forename><forename type="middle">N</forename><surname>Gomez</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Ł</forename><surname>Kaiser</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">I</forename><surname>Polosukhin</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">NIPS</title>
+		<imprint>
+			<date type="published" when="2017" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<monogr>
+				<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Z</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Z</forename><surname>Dai</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Y</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">J</forename><surname>Carbonell</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">R</forename><surname>Salakhutdinov</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Q</forename><forename type="middle">V</forename><surname>Le</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><surname>Xlnet</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1906.08237</idno>
+		<title level="m">Generalized autoregressive pretraining for language understanding</title>
+		<imprint>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<monogr>
+				<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">R</forename><surname>Zellers</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">A</forename><surname>Holtzman</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">H</forename><surname>Rashkin</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Y</forename><surname>Bisk</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">A</forename><surname>Farhadi</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">F</forename><surname>Roesner</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Y</forename><surname>Choi</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1905.12616</idno>
+		<title level="m">Defending against neural fake news</title>
+		<imprint>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<monogr>
+				<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">J</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Y</forename><surname>Zhao</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">M</forename><surname>Saleh</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">P</forename><forename type="middle">J</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><surname>Pegasus</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1912.08777</idno>
+		<title level="m">Pre-training with extracted gap-sentences for abstractive summarization</title>
+		<imprint>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b41">
+	<monogr>
+		<title level="m" type="main">Addressing semantic drift in question generation for semi-supervised question answering</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">S</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">M</forename><surname>Bansal</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:1909.06356</idno>
+		<imprint>
+			<date type="published" when="2019" />
+		</imprint>
+	</monogr>
+	<note type="report_type">arXiv preprint</note>
+</biblStruct>
+
+<biblStruct xml:id="b42">
+	<analytic>
+		<title level="a" type="main">Paragraph-level neural question generation with maxout pointer and gated self-attention networks</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Y</forename><surname>Zhao</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">X</forename><surname>Ni</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Y</forename><surname>Ding</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Q</forename><surname>Ke</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">In EMNLP</title>
+		<imprint>
+			<date type="published" when="2018" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b43">
+	<analytic>
+		<title level="a" type="main">Neural question generation from text: A preliminary study</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Q</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">N</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">F</forename><surname>Wei</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">C</forename><surname>Tan</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">H</forename><surname>Bao</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">M</forename><surname>Zhou</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">National CCF Conference on Natural Language Processing and Chinese Computing</title>
+		<imprint>
+			<date type="published" when="2017" />
+			<biblScope unit="page" from="662" to="671" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b44">
+	<analytic>
+		<title level="a" type="main">Aligning books and movies: Towards story-like visual explanations by watching movies and reading books</title>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">Y</forename><surname>Zhu</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">R</forename><surname>Kiros</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">R</forename><surname>Zemel</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">R</forename><surname>Salakhutdinov</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">R</forename><surname>Urtasun</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">A</forename><surname>Torralba</surname></persName>
+		</author>
+		<author>
+			<persName xmlns="http://www.tei-c.org/ns/1.0"><forename type="first">S</forename><surname>Fidler</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proceedings of the IEEE international conference on computer vision</title>
+		<meeting>the IEEE international conference on computer vision</meeting>
+		<imprint>
+			<date type="published" when="2015" />
+			<biblScope unit="page" from="19" to="27" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>

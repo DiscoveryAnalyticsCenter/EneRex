@@ -1,0 +1,24 @@
+{
+    "carticle_0000011139": [
+        "Attention-based Pyramid Aggregation Network for Visual Place Recognition .",
+        "To address these problems , we present an Attention-based Pyramid Aggregation Network ( APANet ) , which is trained in an end-to-end manner for place recognition ."
+    ],
+    "carticle_0000055209": [
+        "Local Area Transform for Cross-Modality Correspondence Matching and Deep Scene Recognition .",
+        "Furthermore , LAT-convolution layer and Aception block are proposed and , with these novel components , deep neural network called LAT-Net is proposed especially for scene recognition task ."
+    ],
+    "carticle_0000070144": [
+        "Low-Shot Learning for the Semantic Segmentation of Remote Sensing Imagery .",
+        "Recent advances in computer vision using deep learning with RGB imagery ( e.g. , object recognition and detection ) have been made possible thanks to the development of large annotated RGB image datasets .",
+        "In this paper , we study low-shot learning using self-taught feature learning for semantic segmentation .",
+        "These low-shot learning frameworks will reduce the manual image annotation burden and improve semantic segmentation performance for remote sensing imagery .."
+    ],
+    "carticle_0000090234": [
+        "The CNN-PCA method is inspired by recent developments in computer vision using deep learning .",
+        "In this assessment CNN-PCA is applied with derivative-free optimization , and a subspace randomized maximum likelihood method is used to provide multiple posterior models ."
+    ],
+    "carticle_0000105307": [
+        "Despite its abundant lateral and feedback connections , object processing is commonly viewed and studied as a feedforward process .",
+        "These results establish that recurrent models are required to understand information processing in the human ventral stream .."
+    ]
+}

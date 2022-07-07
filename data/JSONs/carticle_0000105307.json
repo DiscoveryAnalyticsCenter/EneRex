@@ -1,0 +1,16 @@
+[
+    {
+        "basename": "carticle_0000105307",
+        "fulltext": 2,
+        "footnote_size": 0,
+        "reference": 0,
+        "authors": []
+    },
+    {
+        "title": "Recurrence is required to capture the representational dynamics of the human visual system",
+        "abstract": "The human visual system is an intricate network of brain regions that enables us to recognize the world around us. Despite its abundant lateral and feedback connections, object processing is commonly viewed and studied as a feedforward process. Here, we measure and model the rapid representational dynamics across multiple stages of the human ventral stream using time-resolved brain imaging and deep learning. We observe substantial representational transformations during the first 300 ms of processing within and across ventral-stream regions. Categorical divisions emerge in sequence, cascading forward and in reverse across regions, and Granger causality analysis suggests bidirectional information flow between regions. Finally, recurrent deep neural network models clearly outperform parameter-matched feedforward models in terms of their ability to capture the multi-region cortical dynamics. Targeted virtual cooling experiments on the recurrent deep network models further substantiate the importance of their lateral and top-down connections. These results establish that recurrent models are required to understand information processing in the human ventral stream."
+    },
+    {},
+    {},
+    {}
+]

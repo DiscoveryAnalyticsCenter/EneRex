@@ -1,0 +1,113 @@
+{
+    "carticle_0000011139": {
+        "App_area": [
+            "Vision"
+        ],
+        "method": [
+            [
+                "APANet"
+            ],
+            [
+                "Attention-based Pyramid Aggregation Network"
+            ]
+        ],
+        "task_application": [
+            [
+                "Visual Place Recognition",
+                "place recognition"
+            ]
+        ]
+    },
+    "carticle_0000055209": {
+        "App_area": [
+            "Vision",
+            "Neuroscience"
+        ],
+        "method": [
+            [
+                "deep neural network"
+            ],
+            [
+                "Local Area Transform"
+            ]
+        ],
+        "task_application": [
+            [
+                "Deep Scene Recognition"
+            ],
+            [
+                "scene recognition task"
+            ],
+            [
+                "Cross-Modality Correspondence Matching"
+            ]
+        ]
+    },
+    "carticle_0000070144": {
+        "App_area": [
+            "Mechanical"
+        ],
+        "method": [
+            [
+                "deep learning",
+                "low-shot learning frameworks",
+                "Low-Shot Learning",
+                "self-taught feature learning"
+            ]
+        ],
+        "task_application": [
+            [
+                "Semantic Segmentation of Remote Sensing Imagery",
+                "semantic segmentation"
+            ],
+            [
+                "low-shot learning"
+            ],
+            [
+                "computer vision"
+            ]
+        ]
+    },
+    "carticle_0000090234": {
+        "App_area": [
+            "Neuroscience"
+        ],
+        "method": [
+            [
+                "subspace randomized maximum likelihood method"
+            ],
+            [
+                "deep learning"
+            ]
+        ],
+        "task_application": [
+            [
+                "multiple posterior models"
+            ],
+            [
+                "computer vision"
+            ]
+        ]
+    },
+    "carticle_0000105307": {
+        "App_area": [
+            "Vision"
+        ],
+        "method": [
+            [
+                "recurrent models"
+            ],
+            [
+                "feedforward process"
+            ]
+        ],
+        "task_application": [
+            [
+                "object processing"
+            ],
+            [
+                "information processing"
+            ]
+        ]
+    }
+}

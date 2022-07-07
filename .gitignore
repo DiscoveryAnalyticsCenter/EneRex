@@ -1,0 +1,35 @@
+# python caches and others
+*__pycache__
+*.pyc
+*checkpoint*
+**/runs
+cache**
+*.lock
+
+# specific directories to avoid
+
+#inside data, keep the folders, ignore the contents for now
+# data/*
+
+
+# inside Grobid, keep the folder, ignore the contents for now
+Grobid/grobid-0.5.6/
+
+
+#output folder
+output/facetBased/*
+output/svmclassifier/*
+output/transformer/*
+
+PwC/
+runs/
+svmclassifier/
+
+tempData/
+
+TrainingDir/
+
+transformerMain.py
+transformerExtraction_module.sh
+
+final_output.json

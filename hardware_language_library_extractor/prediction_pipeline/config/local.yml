@@ -1,0 +1,7 @@
+---
+  PDF_FOLDER_PATH: "/mnt/c/Users/kkkoo/OneDrive/Documents/VirginiaTech/DACResearch/SampleOutput"
+  LIST_OF_PDFs: "/mnt/c/Users/kkkoo/OneDrive/Documents/VirginiaTech/DACResearch/SampleOutput/filelist.txt"
+  OUTPUT_FOLDER: "/mnt/c/Users/kkkoo/OneDrive/Documents/VirginiaTech/DACResearch/SampleOutput/output"
+  MODELS_FOLDER_BASE_PATH: "/mnt/c/Users/kkkoo/OneDrive/Documents/VirginiaTech/DACResearch/extraction_pipeline_results/models"
+  TRAINING_DATA_BASE_PATH: "/mnt/c/Users/kkkoo/OneDrive/Documents/VirginiaTech/DACResearch/data/outputjson/outputjson/extracted_sentences"
+

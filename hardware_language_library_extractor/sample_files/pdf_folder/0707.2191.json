@@ -1,0 +1,321 @@
+[
+    {
+        "basename": "0707.2191",
+        "fulltext": 10,
+        "footnote_size": 0,
+        "reference": 37,
+        "authors": [
+            "Lambiotte",
+            "Ausloos",
+            "Thelwall"
+        ]
+    },
+    {
+        "title": "Word statistics in Blogs and RSS feeds: Towards empirical universal evidence",
+        "abstract": "We focus on the statistics of word occurrences and of the waiting times between such occurrences in Blogs. Due to the heterogeneity of words' frequencies, the empirical analysis is performed by studying classes of \"frequently-equivalent\" words, i.e. by grouping words depending on their frequencies. Two limiting cases are considered: the dilute limit, i.e. for those words that are used less than once a day, and the dense limit for frequent words. In both cases, extreme events occur more frequently than expected from the Poisson hypothesis. These deviations from Poisson statistics reveal non-trivial time correlations between events that are associated with bursts of activities. The distribution of waiting times is shown to behave like a stretched exponential and to have the same shape for different sets of words sharing a common frequency, thereby revealing universal features.",
+        "": "formation, for example in public debates over political questions. Indeed, the democratic nature of Blogs allows us to examine how trends develop from the interactions of decentralized bloggers and to follow dynamic opinion changes over a wide and diverse sample of the population. This is in contrast with the main media where relatively few journalists are involved. Precise knowledge of word statistics in Blogs is consequently of interest in order to make coherent statistical tests for automatically detecting critical events, e.g., trends or media shocks (18; 19).The most basic time statistics ignoring correlations between events can be modeled by Poisson distributions. This distribution concerns independent events: the number n of events arriving during some time interval \u2206 occurs with a probability P (n|a) = a n n! e \u2212a ,where a is the arithmetic average number of events during this time interval. Moreover, the distribution of waiting times between two successive Poisson events is the negative exponential:f (\u03c4 ) = \u03c4 \u22121 c exp (\u2212\u03c4 /\u03c4 c ),(2)where \u03c4 c = \u2206/a is the average characteristic waiting time between events. This distribution is well-known to apply to nuclear disintegration but it has also been used for describing the time gaps between shoppers entering a store  #b16 , the number of failure of products  #b14 , the number of terrorist acts  #b29  as well as the number of airplane accidents as a function of time  #b1 . An increasing amount of empirical evidence indicates, though, that human activity patterns do not fit this model. It has been shown by many other authors that human processes are rather heterogeneously distributed in time, with short periods of high activity (18; 19; 36), or bursts, separated by long periods of inactivity (4; 35; 8; 27; 9; 34; 10; 14; 29). This heterogeneity is characterized by a distribution of waiting times which deviates from the exponential (2) and which, usually, presents a so-called heavy tail.In this paper, we focus on the statistics of such waiting times between word occurrences in Blogs (and other similar periodically updated web sources) and also on the statistics of the number of word occurrences per day. To do so, we focus on texts published in 68022 RSS feeds during a period of 214 days and analyze two limiting cases. On one hand, we focus on very rare \"events\", namely words that occur on average less than once per day. It is shown that the frequency of words is very heterogeneous, so that the time statistics have to be measured in classes of \"frequently-equivalent\" words, i.e. words are discriminated through their total number of occurrences during the whole time period. This discrimination allows us to show that the distribution of waiting times deviates from the exponential (2), i.e. it is fitted by a stretched exponential and therefore presents an overpopulated tail. The deviation from the pure exponential is evaluated with the quantity \u03b6 that measures the importance of the second moment of the time statistics. Interestingly, it is found that the shape of the distribution as well as the value of \u03b6 do not depend on the class of words in which they are measured. On the other hand, we focus on events that occur many times per day on average. In that case, scaling laws are applied in order to smoothen the empirical results. Deviations from the Poisson statistics (1) are also found. Consequently, our results not only confirm that the dynamics of topics in Blogs present bursts of activity (18; 19; 36) but they also provide tools in order to measure the importance of such bursts by comparing the empirical word statistics to a Poisson uncorrelated process.2 Data description",
+        "RSS format": "Really Simple Syndication (RSS) is an XML application designed to deliver brief summaries of the most recent updates of web sites  #b15 , although it is flexible enough to incorporate other applications such as reporting updates in digital libraries or search engine databases. Users with RSS reader software can subscribe to a range of RSS feeds based upon their interests, perhaps including favourite Blogs, some news sites or some special interest sites. The RSS reader will typically check each feed hourly and report to the user whenever new content is found. Each RSS feed contains a list of the most recent site updates, stored as separate XML items. When new content is added to the site, a new item will be added to the feed and the oldest one removed. Hence, when checking for updates, the RSS reader needs to parse feeds for items and report only items that are new, i.e. which were not in the feeds when they were previously checked.RSS is also an attractive format for large scale data collection and analysis because it is typically concise and easy to parse text. In addition, its contents are easily time stamped so that time series can be generated. In contrast, web pages are typically much less concise and much harder to parse. Moreover, time series are difficult to generate from such web pages because they typically reveal at best a last modified date (that is not automatically updated by the author). Like RSS, Blogs are more amenable to time series generation because each posting is dated and old postings are not normally modified. ",
+        "Methodology": "In the following, we focus on the data collected from 68022 RSS feeds from February 11th 2005 to October 2nd 2005. The list of feeds was obtained predominantly from Google, using its filetype:rss command, in conjunction with random mid-frequency words. The purpose of this method was to gain a wide range of types of sites supporting RSS feeds. A small proportion of the feeds, about 1%, were extracted from manual browsing of the web and the nowadays extinct completeRSS.com web site. Altogether, the feeds are predominantly composed of Blogs, but also of other sources of online information, and they are mainly in English (estimated around 70-80%). At this point, it is also important to stress that the boundary between major news outlets and prominent Blogs has become blurred because the top bloggers have similar readerships as major newspapers. This difficulty justifies therefore our study of a heterogeneous collection, that encompasses several kinds of data sources, i.e. incorporating as well personal diary-like Blogs, professional specialist Blogs and newspaper RSS feeds. Let us also stress that one drastic event took place during the period under consideration, the London Attacks of 7 July 2005.Recall that each text published by a blogger is called a post and is made of a sequence of words separated by punctuation, a blank space or markup (e.g., HTML or XML). The data collection was performed as follows. Every 24 hours, all feeds were scanned and their content compared with the content observed in the last scan. All new posts are attributed to the new scanning time. Over the time period of 234 days, we observed 2294672 different words in the data set. In Fig.1, we plot the number of posts containing a specific word as a function of its rank (the most frequently-occurring word has a rank 1, the second placed word has rank 2...). Let us remark the deviations from the power-law, i.e. Zipf law 1/x \u03bb and from the Zipf-Mandelbrot law 1/(1 + ax) \u03bd (26), as those observed in (12; 33; 28). In contrast, the empirical curve of the presently examined data is very well fitted by a modified power-law of the form1/(1 + a 1 x \u03b3 1 + a 2 x \u03b3 2 ),(3)where a 1 = 0.2, a 2 = 0.0004, \u03b3 1 = 0.65 and \u03b3 1 = 1.5. Let us also stress that Eq. (3) includes two different characteristic exponents (6; 25) and that it is reminiscent of Tsallis-like distributions  #b31 . The main point for the rest of this paper is that the rank function of Fig.1 behaves qualitatively like a power-law, which implies that the distribution of the number of posts also behaves like a power-law (1). Consequently, this distribution is very wide and not peaked around its average value, i.e. the number of posts fluctuates enormously from one word to another word.Before going further, one should also note that the above automatic scanning has been perturbed a few times due to technical problems, leading to gaps in time as seen in Fig.2a. These missing scans have therefore led to the erroneous attribution of posts for the missing days and for the day that followed (see Fig.2b). In order to perform a time analysis of word frequencies, we removed from the time series these anomalous data. After this data cleaning, there remained a 214 day time period. This cleaning does not change the shape of the curves of Fig.1, but reduces the systematic errors bars for the following  ",
+        "Word statistics": "",
+        "Ensembles of equivalent words": "Let us label each word by the index \u03b1. The number of posts in which this word occurs on day i is noted W \u03b1i . Moreover W \u03b1 = 214 i=1 W \u03b1i denotes the number of occurrences of \u03b1 over the total time period. As discussed above, words may exhibit a large range of frequencies (1-10 6 ). The spread of these frequencies may find its origin in many causes, e.g. the word \"popularity\" (two synonyms may be more or less popular) or \"contextuality\" (words associated to general and frequent contexts should be used more often). Such effects may be estimated by typing words in Google and counting the number of matches. For instance, synonyms like \"clothes\" and \"garments\" certainly have different popularities, as their Google matches are 136 \u00d7 10 6 and 17 \u00d7 10 6 respectively. Similarly, a word associated with a popular topic/context, e.g. \"music\", which occurs 951 \u00d7 10 6 times, is used much more often than a word associated with a less popular topic, e.g. \"tuberculosis\" occurs 21 \u00d7 10 6 times.It is well-known that heterogeneous events' frequencies may artificially overpopulate the tail of the distribution of waiting times. In (2), for instance, it is shown that such an effect may even lead to a power-law distribution of waiting times while the system evolves in fact like a time-dependent Poisson process. This over-population originates from the fact that a distribution   f (\u03c4 ) =< \u03c4 \u22121 c exp (\u2212\u03c4 /\u03c4 c ) > \u03c4c \u2261 d\u03c4 c \u03c4 \u22121 c exp (\u2212\u03c4 /\u03c4 c )p(\u03c4 c ),(4)where p(\u03c4 c ) is the probability that the characterstic time is \u03c4 c , always exhibits larger fluctuations around the average waiting time than the Poisson distribution (2) does (5; 3). In order to overcome this difficulty, we separate out words depending on their frequencies. Define the ensemble E k of words {\u03b1 i 1 , ..., \u03b1 in k }, that occur k times in the whole time interval. A word that is used only once is usually called a \"hapax legomenon\", while a word used twice is a \"dis legomenon\", thrice, a \"tris legomenon\", etc. Let us also denote the number of words belonging to the ensemble by n k , i.e. it is the number of words \u03b1 for which W \u03b1 = k. In the following analysis, we consider that all words belonging to the same ensemble E k are a priori equivalent. This assumption seems reasonable a priori, as words in the same ensemble have the same average waiting time and should be more homogeneous than words randomly chosen in the whole set of used words. The validity of our assumption will be verified a posteriori by showing that waiting times are distributed in the same way in each ensemble E k .",
+        "Dilute limit": "Very rare words, i.e. words that occur much less than once a day on average, are ideal in order to test Poisson statistics, as the exponential distribution for waiting times (2) should fit them. Consequently, we focus in this section on the ensembles of words E k , with k < 214, i.e. that occur on average less than once day. It is instructive to look at the distribution f (\u03c4 ) (see Eq.(4)) obtained without splitting words into classes, i.e. by averaging the distribution over all words occurring k < 214 times. From the shape of that distribution (Fig.(3)), one might conclude that time lags between word frequencies have a power-law distribution. We show in the following that this interpretation is erroneous and that the power-law shape is due to the averaging process described in the previous section. To do so, we measure the waiting time \u03c4 between two successive occurrences of one specific word in E k , for each ensemble E k separately. The distribution f k (\u03c4 ) is then obtained by performing the analysis for each word in E k . It is shown (Fig.4) that the width of f k depends on the value of k (this is expected as each ensemble k is characterized by a different average frequency) and that f k produces a fat tail, i.e. anomalously large probabilities for very large and very short time intervals. This fat tail suggests that word dynamics are dominated by bursts of activities (35) followed by long periods of rest in which the word does not appear. However, contrary to the distribution of Fig.3, the distributions f k are not well-fitted by a power-law but resemble stretched exponentialsf k (\u03c4 ) = Ce \u2212(a\u03c4 ) \u03bd ,(5)where \u03bd determines the shape of the distribution, C is a constant of integration and a determines the time scale -which all could be dependent on k. However, the exponent \u03bd is always found to be very close to \u03bd = 1/2 for all the values of k. In that case, the constant of integration is C = a/2.  Let us now show that the shape of the distributions f k (\u03c4 ) is universal. To do so, it is helpful to consider the Risk function R k (t)R k (t) = \u221e \u03c4 =t f k (\u03c4 )(6)in order to improve the statistics. The quantity R k (t) converges to zero for t \u2192 \u221e in the same way the time distribution f (\u03c4 ) does for the usual exponential and power-law time statistics  #b1 . By construction, words in the ensemble E k are used k times in 214 days. Consequently, since the average waiting time < \u03c4 > k of such words is< \u03c4 > k = \u03c4 f k (\u03c4 ) \u223c 214 k ,(7)we change the time scale like t \u2192 t R = t/(214/k). Empirical results for a large range of values of k as a function of t R are shown in Fig.5a and highlight deviations from the pure exponential, thereby confirming that correlations between word occurrences do not fit the Poisson hypothesis. Moreover, one observes that curves overlap for every k, thereby showing that the non-Poisson distributions are universal and that words belonging to different ensembles E k share the same statistical properties. Note that this is observed over a large range of k \u2208  #b24 105].In order to quantify the deviations from the exponential (2), it is useful to introduce the quantity\u03b6 =< \u03c4 2 > / < \u03c4 > 2 ,(8)where the average is performed over the distribution of waiting times. It is easily shown that \u03b6 poisson = 2 when the process is Poisson, while it is larger than 2 if the fluctuations around the average waiting time are larger than those of a Poisson process. If the word occurrences were periodic, this quantity would go to zero. We have measured \u03b6 for different ensembles E k , k \u2208  #b24 105]. It is shown in Fig.5b that the empirical value is always larger than the Poisson value 2 and that it fluctuates around \u03b6 empirical = 3.5. Interestingly, \u03b6 k does not depend on the ensemble E k in which it is measured, which implies that the fluctuations around the average waiting time are the same in all ensembles and therefore confirms the universality observed in Fig.5a. Let us stress that the empirical value \u03b6 empirical = 3.5 is very close the value of \u03b6 obtained from the observed distribution  #b4 . Indeed, it is straightforward to show that < \u03c4 >= 6/a and < \u03c4 2 >= 120/a 2 whenf k (\u03c4 ) = a 2 e \u2212(a\u03c4 ) 1/2 ,(9)so that \u03b6 = 10/3 in that case. Rescaled probabilityRescaled number of occurrences Empirical data Poisson process Fig. 6. Rescaled probability distribution of the rescaled number of occurrences Eq.(10) (+) that measures the deviations to the average < x >. The data were obtained by averaging with the proper rescaling over all words occurring k \u2208 [1000, 2000] times, i.e. belonging to the dense limit case. This scheme has also been applied to Poisson random data numerically generated for the same values of k (\u00d7).",
+        "Dense limit": "For words occurring many times a day, it is rather meaningless to focus on the time lags between their occurrences, while a statistical analysis of the number of occurrences per day makes sense. In this limit (k \u226b 1), however, the number n k of words occurring k times is very low (see Fig.1), so that a smoothing method is needed. Define p(x, k) to be the probability that a word occurs x times one day, if it occurs k times over the 214 days. By definition, the average number of day occurrences is < x >= k/214, but the width of the distribution is also expected to vary with k. From our data set, we can verify that the mean square displacement behaves like \u03c3 \u223c k \u22121/2 , as expected. These two relations suggest to focus on the rescaled variable:x = (x \u2212 k 214 ) \u03c3(10)and to the corresponding rescaled probability distribution. By doing so, the data are smoothened and the characterization of the probability shape is pos-sible.In order to compare with Poisson events, we have generated numerically random ensembles E k . This was done by randomly allocating k events into 214 boxes. The following step consists in measuring the distribution p(x, k) and performing the above rescaling. As shown in Fig.6, empirical data are less peaked around the average value, i.e. extreme events happen much more often than in the Poisson case. This over-representation leads to conclusions similar to those made in the previous section. In other words, even in the dense limit, bursts of activities occur.",
+        "Conclusion": "In this article, we have performed an empirical analysis of the word frequencies arising in Blogs and RSS feeds. To do so, we have collected RSS data during a large time period (more than 200 days during spring 2005). These data encompass several kinds of information sources, such as newspaper RSS feeds and personal diary-like Blogs. Our analysis has been performed by discriminating words depending on their number of occurrences k. Namely, ensembles E k of words occurring with the same frequency are defined and all words belonging to that ensemble are assumed to be \"equivalent\". This method is especially suitable when the frequency of word occurrences is very heterogeneous during the whole time window, as an heterogeneity of frequencies may radically alter the statistics of word occurrences.Two limits have been considered: a dilute limit that consists of sparsely used words and a dense limit of words used many times a day. In the dilute limit, we have analyzed the statistics of waiting times between two successive occurrences of a word. It has been shown by using a proper rescaling that the distribution is the same for many ensembles E k , thereby revealing a universal behaviour for word statistics. This universal distribution of waiting times has also been shown to deviate from the pure exponential, i.e. it behaves like a stretched exponential, and a statistical quantity \u03b6 has been introduced in order to measure these deviations. Deviations from the Poisson distribution are also observed for the number of word occurrences per day in the dense limit. Altogether, these deviations are associated with fat tails, e.g., a high probability to observe extreme events, and suggest that word usage is dominated by bursts of activities followed by long periods of rest. Such bursts, which have also been observed in other social systems, e.g., Internet traffic (36), email or web browsing  #b34 , may be caused by a response to an external triggering factor (e.g., US elections, publicity)  #b21  or arise due to active endogenous discussions between bloggers.Theoretical models reproducing the above empirical behaviour would be of great interest. Possible interesting ingredients include aging mechanisms (7; 23; 37) that favour the realization of the most recent words as well as copying mechanisms in which people would have a tendency to use the words used by their acquaintances (20; 21; 11; 24)."
+    },
+    {},
+    {
+        "b0": [
+            "Zipf's law and the Internet",
+            "",
+            "",
+            "",
+            "Adamic",
+            "Huberman"
+        ],
+        "b1": [
+            "Time-evolving distribution of time lags between commercial airline disasters",
+            "",
+            "",
+            "",
+            "Ausloos",
+            "Lambiotte"
+        ],
+        "b2": [
+            "A Brownian particle having a fluctuating mass",
+            "",
+            "",
+            "",
+            "Ausloos",
+            "Lambiotte"
+        ],
+        "b3": [
+            "The origin of bursts and heavy tails in human dynamics",
+            "",
+            "",
+            "",
+            "Barab\u00e1si"
+        ],
+        "b4": [
+            "Dynamical foundations of non-extensive statistical mechanics",
+            "",
+            "",
+            "",
+            "Beck"
+        ],
+        "b5": [
+            "From lognormal distribution to power-law: A new classification of the size distribution",
+            "",
+            "",
+            "",
+            "Benguigui",
+            "Blumenfeld-Lieberthal"
+        ],
+        "b6": [
+            "A Yule-Simon process with memory",
+            "",
+            "",
+            "",
+            "Cattuto",
+            "Loreto",
+            "Servedio"
+        ],
+        "b7": [
+            "An Analysis of Internet Chat Systems",
+            "",
+            "",
+            "",
+            "Dewes",
+            "Wichmann",
+            "Feldman"
+        ],
+        "b8": [
+            "Dynamics of information access on the web",
+            "",
+            "",
+            "",
+            "Dezs\u00f6",
+            "Almaas",
+            "Luk\u00e1cs",
+            "R\u00e1cz",
+            "Szakad\u00e1t",
+            "Barab\u00e1si"
+        ],
+        "b9": [
+            "Long-range correlations between letters and sentences in texts",
+            "",
+            "",
+            "",
+            "Ebeling",
+            "Neiman"
+        ],
+        "b10": [
+            "Exact solutions for network rewiring models",
+            "",
+            "",
+            "",
+            "Evans"
+        ],
+        "b11": [
+            "Two regimes in the frequency of words and the origins of complex lexicons: Zipf's law revisited",
+            "",
+            "",
+            "",
+            "Ferrer-Cancho",
+            "Sole"
+        ],
+        "b12": [
+            "BlogPulse: Automated trend discovery for weblogs",
+            "",
+            "",
+            "",
+            "Glance",
+            "Hurst",
+            "Tomokiyo"
+        ],
+        "b13": [
+            "Price fluctuations and market activity",
+            "",
+            "",
+            "",
+            "Gopikrishnan",
+            "Plerou",
+            "Gabaix",
+            "Amaral",
+            "Stanley"
+        ],
+        "b14": [
+            "",
+            "",
+            "Bayesian Logical data Analysis for the Physical Sciences",
+            ""
+        ],
+        "b15": [
+            "",
+            "",
+            "Developing feeds with RSS and Atom",
+            ""
+        ],
+        "b16": [
+            "Analysis of Housewives' Grocery Shopping Behavior in Taiwan: An Application of the Poisson Switching Regression",
+            "",
+            "",
+            "",
+            "Kan",
+            "Fu"
+        ],
+        "b17": [
+            "Bursty and Hierarchical Structure in Streams",
+            "",
+            "",
+            "",
+            "Kleinberg"
+        ],
+        "b18": [
+            "Temporal Dynamics of On-Line Information Streams",
+            "",
+            "",
+            "",
+            "Kleinberg"
+        ],
+        "b19": [
+            "Organization of Growing Random Networks",
+            "",
+            "",
+            "",
+            "Krapivsky",
+            "Redner"
+        ],
+        "b20": [
+            "Uncovering collective listening habits and music genres from collaborative networks",
+            "",
+            "",
+            "",
+            "Lambiotte",
+            "Ausloos"
+        ],
+        "b21": [
+            "Endo-vs. exogenous shocks and relaxation rates in book and music 'sales",
+            "",
+            "",
+            "",
+            "Lambiotte",
+            "Ausloos"
+        ],
+        "b22": [
+            "Activity Ageing in growing networks",
+            "",
+            "",
+            "",
+            "Lambiotte"
+        ],
+        "b23": [
+            "Growing network with j-redirection",
+            "",
+            "",
+            "",
+            "Lambiotte",
+            "Ausloos"
+        ],
+        "b24": [
+            "",
+            "",
+            "Finite Size Universality in the Arts, Natural and Social Sciences",
+            ""
+        ],
+        "b25": [
+            "Beyond the Zipf-Mandelbrot law in quantitative linguistics",
+            "",
+            "",
+            "",
+            "Montemurro"
+        ],
+        "b26": [
+            "Wide-Area Traffic: The Failure of Poisson Modeling",
+            "",
+            "",
+            "",
+            "Paxson",
+            "Floyd"
+        ],
+        "b27": [
+            "Lack of standardisation in informetric research. Comments on \"Power laws of research output. Evidence for journals of economics",
+            "",
+            "",
+            "",
+            "Rousseau"
+        ],
+        "b28": [
+            "Waiting time distribution in financial markets",
+            "",
+            "",
+            "",
+            "Sabatelli",
+            "Keating",
+            "Dudley",
+            "Richmond"
+        ],
+        "b29": [
+            "Are global terrorist attacks timecorrelated?",
+            "",
+            "",
+            "",
+            "Telesca",
+            "Lovallo"
+        ],
+        "b30": [
+            "Are raw RSS feeds suitable for broad issue scanning? A science concern case study",
+            "",
+            "",
+            "",
+            "Thelwall",
+            "Prabowo",
+            "Fairclough"
+        ],
+        "b31": [
+            "Possible generalization of Boltzmann-Gibbs statistics",
+            "",
+            "",
+            "",
+            "Tsallis"
+        ],
+        "b32": [
+            "Two-step competition process leads to quasi power-law income distributions. Application to scientific and citation distributions",
+            "",
+            "",
+            "",
+            "Van Raan"
+        ],
+        "b33": [
+            "Exact Results for the Barab\u00e1si Model of Human Dynamics",
+            "",
+            "",
+            "",
+            "V\u00e1zquez"
+        ],
+        "b34": [
+            "Modeling bursts and heavy tails in human dynamics",
+            "",
+            "",
+            "",
+            "V\u00e1zquez",
+            "Oliveira",
+            "Dezs\u00f6",
+            "Goh",
+            "Kondor",
+            "Barab\u00e1si"
+        ],
+        "b35": [
+            "",
+            "",
+            "Where Mathematics meets the Internet. Notices of the",
+            ""
+        ],
+        "b36": [
+            "",
+            "",
+            "Novelty and Collective Attention",
+            ""
+        ]
+    },
+    {}
+]

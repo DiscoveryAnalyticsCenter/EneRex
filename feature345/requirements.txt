@@ -1,0 +1,28 @@
+# Usage: `pip install -r requirements.txt``
+
+# Modeling
+
+torch==1.2.0
+allennlp==0.9.0
+
+
+# Data munging
+
+pandas==0.25.2
+beautifulsoup4==4.8.1
+lxml
+
+# SciSpacy for ChemProt preprocessing.
+
+spacy==2.1.9   # For compatibility.
+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.1.0/en_core_web_sm-2.1.0.tar.gz
+scispacy==0.2.3
+https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.2.3/en_core_sci_sm-0.2.3.tar.gz
+
+# ir
+rank-bm25==0.2.1
+
+# fuzzywuzzy and networkx
+fuzzywuzzy==0.18.0
+python-Levenshtein==0.12.0
+networkx==2.5

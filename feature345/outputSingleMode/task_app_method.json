@@ -1,0 +1,57 @@
+{
+    "carticle_0000011139": {
+        "method": [
+            "Attention-based Pyramid Aggregation Network",
+            "APANet"
+        ],
+        "task_application": [
+            "Visual Place Recognition",
+            "place recognition"
+        ]
+    },
+    "carticle_0000055209": {
+        "method": [
+            "deep neural network",
+            "Local Area Transform"
+        ],
+        "task_application": [
+            "Deep Scene Recognition",
+            "Cross-Modality Correspondence Matching",
+            "scene recognition task"
+        ]
+    },
+    "carticle_0000070144": {
+        "method": [
+            "Low-Shot Learning",
+            "deep learning",
+            "self-taught feature learning",
+            "low-shot learning frameworks"
+        ],
+        "task_application": [
+            "semantic segmentation",
+            "computer vision",
+            "Semantic Segmentation of Remote Sensing Imagery",
+            "low-shot learning"
+        ]
+    },
+    "carticle_0000090234": {
+        "method": [
+            "deep learning",
+            "subspace randomized maximum likelihood method"
+        ],
+        "task_application": [
+            "computer vision",
+            "multiple posterior models"
+        ]
+    },
+    "carticle_0000105307": {
+        "method": [
+            "recurrent models",
+            "feedforward process"
+        ],
+        "task_application": [
+            "object processing",
+            "information processing"
+        ]
+    }
+}

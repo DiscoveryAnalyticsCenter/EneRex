@@ -1,0 +1,10 @@
+output/transformer/*
+
+tempData/*
+
+runs/
+
+noncontext/datasetData
+noncontext/sourcecodeData
+
+environment_minimal.yml

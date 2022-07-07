@@ -1,0 +1,5 @@
+{
+    "tempDataDir": "tempData",
+    "model_source_path": "noncontext/sourcecodeOutput",
+    "dataset_model_path": "noncontext/datasetOutput"
+}

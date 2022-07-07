@@ -1,0 +1,32 @@
+*__pycache__
+*.pyc
+data/*
+models/*
+# pretrained/*
+predictions/*
+**/stanford*/*
+scratch*
+
+taxonomySeeds/*.subspace
+
+
+pretrained/scibert_scivocab_cased/
+pretrained/*.tar
+pretrained/*.tar.gz
+# !pretrained/scierc-lightweight.tar.gz
+
+outputDataFull/
+oldCodes/
+TODO.md
+
+measure_postProcess.py
+
+pwc/
+pwc/evaluation-tables.json
+pwc/papers-with-abstracts.json
+
+embeddingsAppAreas/
+sampleAreaExample/
+taxonomySeeds/
+
+application_area.py

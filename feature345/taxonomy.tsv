@@ -1,0 +1,26 @@
+name	details	refined_seeds
+Assistive_Computing	Assistive Computing	assistive, on-body, gait, trauma, accident, behavioural, walker, wheelchair, impairment, mobility, hearing, disability, disabilities, disable, therapy, prosthesis, Exoskeleton, braille, aid
+Art_music	Art and Music	art, music, game, entertainment, gaming, playing, play, acoustic
+Astro	Astronomy and Astrophysics	physics, astronomy, astrophysics, galaxy, particle, fluid, ray, pulsar, neutron, GRAPE, plasma, Extraterrestrial, cosmos, solar, universe, astro
+Audio	Audio Processing, signal processing	audio, speech, signal, sound, wave, decibel, acoustic, noise, synthesis, echo, reverb, sinusoid, codec, frequency
+Automation	Automation, Robotics, Process Control, Industrial Automation	robot, automation, mechanical, mechanic, autonomy, industry, drone, actuator, actuation, motor, sensor, gripper, wheel, uav, control, ooperator, kinematics, bionic, dof
+Bio	Bioinformatics, Computational Biology, Genomics, Proteomics, Sequencing	biological, biology, gene, genetic, genome, genomes, DNA, RNA, chemistry, biochemistry, molecular, genomics, evolution, bioinfomatics, roteomics, protein, phylogenetics
+Climate_sustainability	Climate, Ecological, and Environmental Science	climate, ecology, environment, sustainability, atmosphere, geology, soil, ocean, zoology, pollution, global, geoscience, NEPA
+Vision	Computer Vision	vision, photography, image, sobject, detection, recognition, video, visual, scene, VQA, character, pattern, edge, facial, color, optic
+CSCW_HCI	CSCW/HCI, UI, communication	hci, cscw, crowdsource, crowdsourcing, cooperative, interface, UI, UIX, GUI, social
+Data_mining	Data Mining	data, mining, machine, learning, statistics, database, information, extraction, retrieval, spatial, knowledge, discovery, KDD, NLTK, NLP, prediction, entity, kaggle
+Epidemiology	Epidemiology, Surveillance	flu, vaccine, influenza, health, public, epidemiology, disease, illness, virus, bacteria, epidemic, antibiotic, forecast, chronic, infectious
+Finance	Finance, Economics, and Econometrics	economics, finance, econometrics, money, GDP
+Cyber_physical	Cyber-physical systems, IoT, Edge Computing	cyber, IoT, edge, cps, GPS, sensor, WiFi, Wi-Fi, 4G, 5G, LTE, Ethernet, EDGE, Bluetooth, NFC, RFID, Li-FI, wireless, cloud, fridge, smart, home, appliance, thermostat, grid, distributed, edge
+Health	Healthcare and Health Informatics	health, care, healthcare, nurse, nursing, clinical, clinic, patient, outpatient, medical, vital, sick, out-patient
+Logistic	Logistics, Fleet Management, Supply Chain Management, Risk Analysis	logistic, supply, chain, fleet, risk, food, goods, product
+Computational_Advertising	marketing, Computational Advertising	market, marketing, sale, match, auction, advertise, advertisement, advertiser, publisher, banner, ads, billboard, CPM, CPC, CPT, CPA, CPV, rev-share, TAC, sponsor, publisher, recommend, recommender, click-through
+Medicine	Medicine, Drug Discovery, Pharmacology	medicine, drug, pharmacology, trial, clinical, pharmacy, pharmacist, toxicity, metabolism, pharmacotherapeutic, Cheminformatics, medication, FDA, EMA
+Mechanical	Mechanical Engineering, Additive Manufacturing/3D Printing, Parts Design, Robotics, Fluid Mechanics, Solid Mechanics	mechanics, mechanical, autoCAD, CAD
+Neuroscience	Neuroscience and Cognitive Science	neuron, brain, cognition, cognitive, nerve, nervous, synaptic, synapses, sensory, consciousness, psychology
+NLP	Natural Language Processing	OCR, text, word, tokenization, lemmatization, morphological, morphology, part-of-speech, stem, stemming, parse, parsing, tree, lexicon, lexical, NER, entitiy, sentiment, semantic, coreference, text textual, topic, summarization, translation, tf-idf
+Social_net	Social Networks, Social Network Analysis, Web	social, twitter, facebook, reddit, tumblr, instagram, whatsapp, snapchat, myspace, youtube, vine, flickr, yahoo,  Google+, Slashdot, Wikipedia, Twitch, amazon, Deezer, RateBeer, beeradvocate, yelp, blog, stack-overflow, community, media
+Quantam	Quantum Mechanics, Quantum Computing	Quantum, superposition, entanglement, qubit, bit, state, supremacy, IBM, Helium-3, Adiabatic, Superconducting, BQP, Supercomputer
+Recommender_system	Recommender Systems	recommendation, review, rating, youtube, spotify, netflix, amazon, content, movie, book, goodread, dating, A/B, click-through, CTR, simrank, ranking
+Security	Security, Fraud Detection, Intrusion Detection, Cybersecurity	security, cybersecurity, DDoS, DoS, IP, backdoor, threat, cryptosystem, cryptography, cryptographic, encryption, decryption, cipher, Eavesdrop,  phish,  spoof, tamper, maleware, ransomware, virus, antivirus, cyberattack, breach, hacker, firewall, worm, hack, Anti-virus, authentication, scam
+Transportation	Transportation	transport, automobile, bicycle, car, bus, truck, vehicle, motorvehicle, bike, roads, railway, airway, waterway, canal, airport, railway, station, warehouse, refuel, fuel

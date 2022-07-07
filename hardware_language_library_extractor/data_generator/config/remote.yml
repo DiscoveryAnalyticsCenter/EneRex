@@ -1,0 +1,6 @@
+---
+  PDF_FOLDER_PATH: "/home/group/cset/newAllCSjson"
+  LIST_OF_PDFs: "/home/group/cset/extracted_sentences/filelist.txt"
+  OUTPUT_FOLDER_BASE_PATH: "/home/group/cset/extracted_sentences/output"
+  MODELS_FOLDER_BASE_PATH: "/home/group/cset/extracted_sentences/models"
+  TRAINING_DATA_BASE_PATH: "/home/group/cset/extracted_sentences/"

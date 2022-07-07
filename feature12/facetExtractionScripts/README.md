@@ -1,0 +1,1 @@
+These are the codes for extracting source codes and dataset sentences and names using facet based syntactic templates. We used the output from these scripts to train the machine learning models. More information about output format will be added later. 

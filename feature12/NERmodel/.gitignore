@@ -1,0 +1,11 @@
+conllData
+
+
+data/*.lock
+data/*.txt
+data/*.tmp
+!data/labels.txt
+OutputData_256/
+predictions/*.txt
+!predictions/test_results.txt
+runs/
