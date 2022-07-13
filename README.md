@@ -1,5 +1,5 @@
 # EneRex: End-to-end Research Entity Extractor 
-This is the public repository with the code and data from the paper "Lessons from Deep Learning applied to Scholarly Information Extraction: What Works, What Doesn’t, and Future Directions"
+This is the public repository with the code and data from the paper ["Lessons from Deep Learning applied to Scholarly Information Extraction: What Works, What Doesn’t, and Future Directions"](https://api.semanticscholar.org/CorpusID:250408178)
 
 ## Structure and Overview of the data directories
 The different facets of EneRex is gropued into three pipeline, Source code and dataset are inside `feature12`. Objective task and methods are inside `feature345`. Hardware and language/library are inside `hardware_language_library_extractor`. Each directory has own readme file with details. 
@@ -25,6 +25,19 @@ Each JSON file represents a single PDF/TXT file. It contains a single list. Ther
 
 ## Features list
 Directory `feature12` has the source code and dataset feature extraction scripts. Direcotry `feature345` has task, application and method feature extraction scripts. Please review the `README` for each subtask/feature directory for environment and dependencies.
+
+## Citation
+If you find this project useful for your task/research please cite using the following bibtex file.
+
+    @inproceedings{yousuf2022lessons,
+    title={Lessons from Deep Learning applied to Scholarly Information Extraction: What Works, What Doesn't, and Future Directions},
+    author={Yousuf*, Raquib Bin and Biswas*, Subhodip and Kaushal, Kulendra Kumar and Dunham, James and Gelles, Rebecca and Muthiah, Sathappan and Self, Nathan and Butler, Patrick and Ramakrishnan, Naren},
+    booktitle={Proceedings of the 28th ACM SIGKDD international conference on Knowledge discovery and data mining},
+    series={Workshop on Data-Driven Science Of Science},
+    year={2022},
+    doi = {10.48550/ARXIV.2207.04029},
+    url = {https://arxiv.org/abs/2207.04029},
+    }
 
 
 
