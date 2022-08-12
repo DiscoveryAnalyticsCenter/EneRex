@@ -1,0 +1,4 @@
+T1	Dataset_Sentence 740 947	Experiments on the Caltech-UCSD bird dataset confirm that our method outperforms state-of-the-art fine-grained categorization methods in an end-to-end evaluation without requiring a bounding box at test time
+T2	Dataset 759 784	Caltech-UCSD bird dataset
+T3	Lang_lib_Sentence 16551 16641	We use the open-source package Caffe  #b24  to extract deep features and finetune our CNNs
+T4	Lang_lib 16582 16587	Caffe

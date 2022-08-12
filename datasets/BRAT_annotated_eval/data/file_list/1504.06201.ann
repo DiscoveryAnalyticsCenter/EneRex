@@ -1,0 +1,14 @@
+T1	Comp_res_Sentence 11572 11740	Thanks to this speedup, our method has a runtime of 1.2 seconds (using a K40 GPU), which is better than the runtimes of prior deep-learning based edge detection methods
+T2	Comp_res 11613 11635	runtime of 1.2 seconds
+T3	Comp_res 11645 11652	K40 GPU
+T4	Lang_lib_Sentence 12564 12633	We use the Caffe library  #b14  to implement our network architecture
+T5	Lang_lib 12575 12580	Caffe
+T6	Dataset_Sentence 12984 13049	Our training dataset includes 80K points from the BSDS500 dataset
+T7	Dataset 13034 13041	BSDS500
+T8	Dataset_Sentence 20131 20315	In this section, we present semantic boundary labeling results on the SBD dataset  #b10 , which includes ground truth boundaries that are also labeled with one of 20 Pascal VOC classes
+T9	Dataset 20201 20204	SBD
+T10	Dataset_Sentence 26181 26369	In this section, we present semantic segmentation results on the SBD  #b10  and also Pascal VOC 2007  #b7  datasets, which both provide ground truth segmentations for 20 Pascal VOC classes
+T11	Dataset 26246 26249	SBD
+T12	Dataset 26266 26281	Pascal VOC 2007
+T13	Dataset_Sentence 29518 29600	In this section, we present object proposal results on the Pascal VOC 2012 dataset
+T14	Dataset 29577 29592	Pascal VOC 2012

@@ -1,0 +1,17 @@
+T1	Dataset 976 984	Imagenet
+T2	Dataset 1161 1172	Caltech-101
+T3	Dataset 1237 1253	smallimage MNIST
+T4	Dataset 1258 1266	CIFAR-10
+T5	Dataset_Sentence 1174 1276	We also obtain competitive image classification results on the smallimage MNIST and CIFAR-10 datasets.
+T6	Dataset_Sentence 957 1101	Our experiments on Imagenet indicate improved recognition performance compared to standard convolutional neural networks of similar architecture
+T7	Dataset_Sentence 1103 1173	Our models pre-trained on Imagenet perform excellently on Caltech-101.
+T8	Dataset_Sentence 4660 4817	We quantitatively evaluate the proposed model primarily in image classification experiments on the Imagenet ILSVRC-2012 large-scale image classification task
+T9	Dataset_Sentence 5748 5929	Finally, we report excellent image classification results on the MNIST and CIFAR-10 benchmarks with smaller deep epitomic networks trained from scratch on these small-image datasets
+T10	Dataset_Sentence 14014 14158	We have performed most of our experimental investigation on the Imagenet ILSVRC-2012 dataset  #b4 , focusing on the task of image classification
+T11	Dataset 14078 14098	Imagenet ILSVRC-2012
+T12	Dataset_Sentence 14591 14998	e also evaluate deep epitomic networks trained on Imagenet as a black-box visual feature front-end on the Caltech-101 benchmark  #b5 . This involves classifying images into one out of 102 possible image classes. We further consider two standard classification benchmarks involving thumbnail-sized images, the MNIST digit  #b17  and the CIFAR-10  #b13 , both involving classification into 10 possible classes
+T13	Comp_res_Sentence 18379 18459	raining each of the three models takes two weeks using a single NVIDIA Titan GPU
+T14	Comp_res 18418 18427	two weeks
+T15	Comp_res 18434 18459	a single NVIDIA Titan GPU
+T16	Lang_lib_Sentence 23756 23849	We implemented the proposed methods by extending the excellent Caffe software framework  #b10
+T17	Lang_lib 23819 23833	Caffe software

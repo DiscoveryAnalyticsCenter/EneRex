@@ -1,0 +1,6 @@
+T1	Dataset_Sentence 1082 1273	We conduct extensive experiments on two challenging scene parsing benchmarks of PASCAL-Context and ADE 20K to validate the effectiveness of our PDML, and competitive mIoU scores are achieved.
+T2	Dataset_Sentence 15571 15720	Our proposed model is trained and evaluated on two challenging scene parsing datasets: PASCAL-Context  #b13 ) and ADE 20K  #b27 , as shown in Table 2
+T3	Dataset 15658 15672	PASCAL-Context
+T4	Dataset 15685 15692	ADE 20K
+T5	Comp_res_Sentence 16726 16784	All the experiments are conducted on two NVIDIA V100 GPUs.
+T6	Comp_res 16767 16783	NVIDIA V100 GPUs

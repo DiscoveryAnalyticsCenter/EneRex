@@ -1,0 +1,11 @@
+T1	Source_code_Sentence 12205 12255	Available at https://github.com/didzis/smatchTools
+T2	Source_code 12218 12255	https://github.com/didzis/smatchTools
+T3	Lang_lib_Sentence 9538 9714	We trained a modified TensorFlow seq2seq neural translation model 6 with attention  #b0 Sutskerev et al., 2014; #b1  to "translate" plain English sentences into simplified AMRs
+T4	Lang_lib 9560 9570	TensorFlow
+T5	Comp_Lang_Sentence 10410 10740	We optimized TensorFlow seq2seq model hyperparameters within the constraints of the available GPU memory: 1 layer or 400 neurons, single bucket of size 480, each input and output character tokenized as a single "word", vocabulary size 120 (number of distinct characters), batch size 4, trained for 30 epochs (4 days on TitanX GPU)
+T6	Comp_res 10719 10725	4 days
+T7	Comp_res 10729 10739	TitanX GPU
+T8	Comp_res 10504 10507	GPU
+T9	Lang_lib 10423 10433	TensorFlow
+T10	Source_code_Sentence 12260 12307	Modified CAMR at https://github.com/didzis/CAMR
+T11	Source_code 12277 12307	https://github.com/didzis/CAMR

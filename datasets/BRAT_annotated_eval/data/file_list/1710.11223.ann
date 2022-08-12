@@ -1,0 +1,3 @@
+T3	Dataset_Sentence 20480 20578	We use two models of simulated datasets as well as a real world dataset for empirical comparisons.
+T1	Dataset_Sentence 25533 25632	We then use DIFFEE for a classification task on a well-known human brain fMRI dataset: ABIDE  #b1 .
+T2	Dataset 25620 25625	ABIDE

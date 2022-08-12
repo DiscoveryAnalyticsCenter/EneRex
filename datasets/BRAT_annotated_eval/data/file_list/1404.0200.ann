@@ -1,0 +1,9 @@
+T1	Dataset_Sentence 4574 4753	Therefore, we used two electricity consumption data sets: one collected by researchers at the Technische Universität München and one from the Massachusetts Institute of Technology
+T2	Dataset_Sentence 9855 10131	In the TUM Home Experiment, a single household in Germany, in the state of Bavaria, was equipped with can be seen that the demand is flat for long time intervals, with occasional peaks, especially in the evenings.In particular, 70% of all power readings lie between 25 and 30W
+T3	Dataset 9862 9881	TUM Home Experiment
+T4	Dataset_Sentence 10424 10537	The Reference Energy Disaggregation Data Set (REDD) is a public data set for energy disaggregation research  #b17
+T5	Dataset 10424 10475	The Reference Energy Disaggregation Data Set (REDD)
+T6	Dataset 10364 10376	TUM data set
+T7	Dataset 11470 11483	REDD data set
+T8	Lang_lib_Sentence 17518 17615	To find the optimal parameters, we use the auto.arima() method provided by the R forecast package
+T9	Lang_lib 17597 17615	R forecast package

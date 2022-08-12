@@ -1,0 +1,11 @@
+T1	Dataset_Sentence 992 1280	Two problems (Sketch-Photo and NIR-VIS) and three databases are selected to evaluate the proposed method. For Sketch-Photo problem, we obtain perfect results on the CUFS database. For NIR-VIS problem, we produce new state-of-the-art performance on the CASIA HFB and NIR-VIS 2.0 databases.
+T3	Dataset 1244 1253	CASIA HFB
+T4	Dataset 1258 1269	NIR-VIS 2.0
+T2	Dataset 1157 1161	CUFS
+T5	Dataset_Sentence 4378 4740	For Sketch-Photo problem, perfect results are obtained on the CUFS  #b1  database. This is the first work that saturates the database. 3. Local RBMs are first used to learn the shared representations of heterogenous face images. By plugging the local RBMs into the framework, we get stateof-the-art results on the CASIA HFB  #b9  and NIR-VIS 2.0  #b10  databases
+T6	Dataset 4440 4444	CUFS
+T7	Dataset 4692 4701	CASIA HFB
+T8	Dataset 4712 4723	NIR-VIS 2.0
+T9	Dataset_Sentence 16933 17088	he results on three popular databases, CUFS  #b1 , CASIA HFB  #b9  and CASIA NIR-VIS 2.0  #b10 , all outperform the current state-of-the-arts significantly
+T10	Comp_res_Sentence 22023 22123	Limited by the memory of our Geforce GTX670 GPU, the hidden layer of global RBM only uses 3520 units
+T11	Comp_res 22052 22070	Geforce GTX670 GPU

@@ -1,0 +1,4 @@
+T1	Comp_res_Sentence 44134 44270	ll experiments are conducted on a machine equipped with 12 CPU cores (Intel i7-6850K 3.60GHz), 32 GB RAM, and NVIDIA GPUs (Quadro P6000)
+T2	Comp_res 44168 44270	machine equipped with 12 CPU cores (Intel i7-6850K 3.60GHz), 32 GB RAM, and NVIDIA GPUs (Quadro P6000)
+T3	Lang_lib_Sentence 43889 44041	We implemented the procedure ProofSynthesize and our model on Python 3 (version 3.6.3) with the deep learning framework Chainer  #b47 ] (version 2.1.0).
+T4	Lang_lib 43951 43959	Python 3

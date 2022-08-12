@@ -1,0 +1,16 @@
+T1	Dataset_Sentence 22723 22887	Below we demonstrate the ability of our system to learn meaningful features on MNIST  #b59 , MNIST-rot  #b32 , the Basel Face Dataset  #b22 , and ModelNet10  #b56 .
+T2	Dataset 22802 22807	MNIST
+T3	Dataset 22816 22825	MNIST-rot
+T4	Dataset 22838 22848	Basel Face
+T5	Dataset 22869 22879	ModelNet10
+T6	Dataset_Sentence 23388 23518	The MNIST dataset  #b59  contains 50k training, 10k validation, and 10k grayscale test images of handwritten digits, size 28 × 28.
+T7	Dataset 23392 23397	MNIST
+T8	Dataset_Sentence 26553 26643	The Basel Face dataset  #b22  contains synthetic face renderings encoded using a PCA model
+T9	Dataset 26557 26567	Basel Face
+T10	Comp_res_Sentence 29622 29662	We train on a single TITAN X Pascal GPU.
+T11	Comp_res 29643 29661	TITAN X Pascal GPU
+T12	Comp_res_Sentence 29663 29706	1 /4-2 hours is sufficient for good results
+T13	Comp_res 29665 29675	/4-2 hours
+T14	Dataset_Sentence 32558 32639	For this experiment, we use the ModelNet10 subset of the ShapeNet dataset  #b57 .
+T15	Dataset 32615 32623	ShapeNet
+T16	Dataset 32590 32600	ModelNet10

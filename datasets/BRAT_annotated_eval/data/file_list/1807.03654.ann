@@ -1,0 +1,10 @@
+T1	Dataset_Sentence 6582 6717	We collect a corpus of censored and uncensored texts in order to analyze and compare the linguistic signals embedded in each category 2
+T2	Dataset_Sentence 9151 9207	All uncensored blogposts are collected from Sina Weibo 3
+T3	Dataset_Sentence 9739 9804	All censored data are collected from Freeweibo 4 and WeiboScope 5
+T4	Lang_lib_Sentence 10921 10960	We use Jieba 6 to segment all the data.
+T5	Lang_lib 10928 10933	Jieba
+T6	Lang_lib_Sentence 11862 11933	We use BaiduAI 9 to obtain a set of sentiment scores for each blogpost.
+T7	Lang_lib 11869 11876	BaiduAI
+T8	Lang_lib_Sentence 17198 17324	We train word vectors using the word2vec tool  #b14  #b15  on 300,000 of the latest Chinese articles 13 provided by Wikipedia.
+T9	Dataset_Sentence 17198 17324	We train word vectors using the word2vec tool  #b14  #b15  on 300,000 of the latest Chinese articles 13 provided by Wikipedia.
+T10	Lang_lib 17230 17238	word2vec

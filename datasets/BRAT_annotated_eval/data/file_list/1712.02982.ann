@@ -1,0 +1,9 @@
+T1	Dataset_Sentence 521 635	A dataset of 1,546 baseline CT scans was used from the National Lung Screening Trial with manually identified CAC.
+T2	Dataset_Sentence 4570 4712	A subset of 1,546 chest CT scans (911 men, age range: 54-74) was randomly selected from a set of 6,000 available baseline scans from the NLST.
+T3	Dataset 4594 4602	CT scans
+T4	Dataset 549 557	CT scans
+T5	Dataset 576 605	National Lung Screening Trial
+T6	Comp_res_Sentence 14761 14932	Training the networks took approximately 7 hours per network, but testing took less than 2 seconds per scan on a state-of-the-art GPU, including localization of the heart.
+T7	Comp_res 14874 14894	state-of-the-art GPU
+T8	Comp_res 14850 14859	2 seconds
+T9	Comp_res 14802 14809	7 hours

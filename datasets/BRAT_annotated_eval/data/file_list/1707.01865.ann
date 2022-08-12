@@ -1,0 +1,11 @@
+T1	Source_code_Sentence 4126 4185	The URL for the online environment is http://goo.gl/ukSZET.
+T2	Source_code 4164 4184	http://goo.gl/ukSZET
+T3	Lang_lib_Sentence 9476 9528	The front end is implemented by HTML and JavaScript.
+T4	Lang_lib 9508 9512	HTML
+T5	Lang_lib_Sentence 9807 9883	The back end is mainly implemented using PHP and is hosted on the server sid
+T6	Lang_lib 9517 9527	JavaScript
+T7	Lang_lib 9848 9851	PHP
+T8	Lang_lib_Sentence 10307 10358	In our implementation, we use mySQL database system
+T9	Lang_lib 10337 10342	mySQL
+T10	Lang_lib_Sentence 19769 19840	The Java program implementing our algorithm above is at the server side
+T11	Lang_lib 19773 19777	Java

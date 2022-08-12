@@ -1,0 +1,4 @@
+T1	Comp_res_Sentence 9912 10044	The OpenStack cluster used to collect the data for this article was a set of 3 Intel NUCs D54250WYKH1  #b9  provided by Cisco System
+T2	Comp_res_Sentence 10395 10464	The operating system used is Ubuntu 14.04 amd 64 + OpenStack IceHouse
+T3	Dataset_Sentence 4623 4759	This article details a method to collect samples of data from an OpenStack cluster [12], featuring regular workloads and fraudulent ones
+T4	Lang_lib_Sentence 13566 13650	HiBench is a collection of jobs that benchmark different aspects of a hadoop cluster

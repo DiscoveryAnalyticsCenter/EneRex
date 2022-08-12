@@ -1,0 +1,4 @@
+T1	Lang_lib_Sentence 35271 35405	We verified the connection between the two methods empirically, using the SVMlight software with the default tuning parameters  #b18 .
+T2	Lang_lib 35345 35353	SVMlight
+T3	Dataset_Sentence 3769 3926	We analyze the 1991 Irish Dáil confidence debate, previously studied by  #b21  who used the debate speeches to demonstrate their "Wordscores" scaling method.
+T4	Dataset 3789 3817	Irish Dáil confidence debate

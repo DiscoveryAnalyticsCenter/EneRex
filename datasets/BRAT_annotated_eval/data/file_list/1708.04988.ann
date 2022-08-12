@@ -1,0 +1,4 @@
+T1	Dataset_Sentence 3492 3593	The first dataset called XOR is a standard visualization and testing dataset that is custom generated
+T2	Dataset 3517 3520	XOR
+T3	Dataset_Sentence 3701 3845	The second dataset, Phenotype, was obtained from The Cancer Genome Atlas (TCGA), a National Institute of Health (NIH) cancer research consortium
+T4	Dataset 3721 3730	Phenotype

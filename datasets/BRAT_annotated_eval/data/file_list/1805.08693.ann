@@ -1,0 +1,9 @@
+T1	Dataset_Sentence 347 704	We explore two microstructure segmentation tasks in an openly-available ultrahigh carbon steel microstructure dataset [1, 2]: segmenting cementite particles in the spheroidized matrix, and segmenting larger fields of view featuring grain boundary carbide, spheroidized particle matrix, particle-free grain boundary denuded zone, and Widmanstätten cementite.
+T2	Dataset_Sentence 943 1012	The full annotated dataset is available on materialsdata.nist.gov [3]
+T3	Dataset 419 456	ultrahigh carbon steel microstructure
+T4	Dataset_Sentence 3505 3654	We evaluate the feasibility of this approach on a subset of the openly available Utrahigh Carbon Steel (UHCS) microstructure dataset  #b0  #b13  #b14
+T5	Dataset 3586 3629	Utrahigh Carbon Steel (UHCS) microstructure
+T6	Dataset_Sentence 8748 8903	We initialize the feature extraction portion of our networks with a pre-trained VGG-16  #b23  network trained on the ImageNet  #b26  classification dataset
+T7	Dataset 8865 8873	ImageNet
+T8	Dataset_Sentence 11433 11645	The semantic microstructure segmentation dataset consists of 24 manually annotated  $b3  micrographs from the open UHCS dataset  #b0  #b1 ; examples are shown in Figure 2 and in the online supplemental materials.
+T9	Dataset 11548 11552	UHCS

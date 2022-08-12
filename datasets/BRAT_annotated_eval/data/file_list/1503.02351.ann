@@ -1,0 +1,6 @@
+T1	Dataset_Sentence 592 729	We demonstrate our method on the semantic image segmentation task and show encouraging results on the challenging PASCAL VOC 2012 dataset
+T2	Dataset 706 721	PASCAL VOC 2012
+T3	Dataset_Sentence 16948 17041	We evaluate our approach summarized in Fig. 3 on the dataset of the Pascal VOC 2012 challenge
+T4	Dataset_Sentence 17134 17215	The original dataset contains 1464 training, 1449 validation and 1456 test images
+T5	Comp_res_Sentence 20777 20871	Due to the 12GB memory restrictions on the Tesla K40 GPU we use a mini-batch size of 20 images
+T6	Comp_res 20820 20833	Tesla K40 GPU

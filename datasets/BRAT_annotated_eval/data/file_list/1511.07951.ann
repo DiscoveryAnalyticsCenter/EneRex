@@ -1,0 +1,8 @@
+T1	Dataset_Sentence 196 550	To this end, we generate a large database consisting of more than 10k images (which is 20× bigger than existing edge detection databases) along with ground truth boundaries between 459 semantic classes including both foreground objects and different types of background, and call it the PASCAL Boundaries dataset, which will be released to the community.
+T2	Dataset 483 500	PASCAL Boundaries
+T3	Dataset_Sentence 16449 16608	We initialize the base network weights, W base , from the five convolutional layers of the VGG16 network  #b24 , which was pretrained on the ImageNet database.
+T4	Dataset 16590 16598	ImageNet
+T5	Comp_res_Sentence 22103 22216	To enable batch training on a GPU, we resized all images from the train set to a standard resolution of 400 × 400
+T6	Comp_res 22133 22136	GPU
+T7	Lang_lib_Sentence 21664 21782	We used the publicly available FCN code  #b18 , which is built on top of the Caffe framework to train our deep network
+T8	Lang_lib 21741 21746	Caffe

@@ -1,0 +1,14 @@
+T1	Dataset_Sentence 478 878	Our experiments on the publicly available SentiBank dataset show that our model significantly outperforms not only independent ANP classifiers on unseen ANPs and on retrieving images of novel ANPs, but also image captioning models which capture word semantics from co-occurrence of natural text; the latter turn out to be surprisingly poor at capturing the sentiment evoked by pure visual experience.
+T2	Dataset 520 529	SentiBank
+T3	Dataset_Sentence 10439 10633	We describe our ANP ontology and its associated publicly available dataset, present our experimental details, and show our detection and retrieval performance.ANPs from Visual Sentiment Ontology
+T4	Dataset 10608 10639	Visual Sentiment Ontology (VSO)
+T5	Dataset_Sentence 11002 11093	We use the publicly available dataset of Flickr images introduced in [3] with SentiBank 1.1
+T6	Dataset 11032 11056	dataset of Flickr images
+T7	Dataset 11080 11093	SentiBank 1.1
+T8	Dataset_Sentence 12550 12627	We fine tune the models in Fig. 4 from VGG-net pretrained on ImageNet dataset
+T9	Dataset 12611 12619	ImageNet
+T10	Comp_res_Sentence 13175 13366	We train our models though stochastic gradient descent with momentum 0.9, weight decay 0.0005 and mini-batch size 256 for five epochs, taking 2-3 days for training convergence on a single GPU
+T11	Comp_res 13317 13325	2-3 days
+T12	Comp_res 13356 13366	single GPU
+T13	Lang_lib_Sentence 13052 13113	Our models are implemented using our modified branch of CAFFE
+T14	Lang_lib 13108 13113	CAFFE

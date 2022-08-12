@@ -1,0 +1,5 @@
+T1	Source_code_Sentence 1811 1925	We make the benchmark tasks publicly available to enhance reproducibility in real-world reinforcement learning 1 .
+T2	Source_code_Sentence 35543 35625	Source code for all tasks available at https://github.com/kindredresearch/SenseAct
+T3	Source_code 35582 35625	https://github.com/kindredresearch/SenseAct
+T4	Lang_lib_Sentence 13313 13491	We improve on that model by running environment and agent computations on two different processes, which we found to reduce execution delays compared to the use of Python threads
+T5	Lang_lib 13477 13483	Python

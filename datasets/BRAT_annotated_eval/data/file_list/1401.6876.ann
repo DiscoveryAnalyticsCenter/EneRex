@@ -1,0 +1,6 @@
+T1	Dataset_Sentence 35503 36097	We experiment with the following bi-texts and monolingual English data:• Indonesian-English (in-en):train: 28,383 sentence pairs (0.8M, 0.9M words);dev: 2,000 sentence pairs (56.6K, 63.3K words);test: 2,000 sentence pairs (58.2K, 65.0K words);monolingual English en in : 5.1M words.• Malay-English (ml-en):train: 190,503 sentence pairs (5.4M, 5.8M words);dev: 2,000 sentence pairs (59.7K, 64.5K words);test: 2,000 sentence pairs (57.9K, 62.4K words);monolingual English en ml : 27.9M words.• Spanish-English (es-en): The lengths of the sentences in all bi-texts above are limited to 100 tokens.
+T2	Dataset 35576 35601	Indonesian-English (in-en
+T3	Dataset 35787 35808	Malay-English (ml-en)
+T4	Dataset 35995 36017	Spanish-English (es-en
+T5	Dataset_Sentence 36453 36679	The training bi-text datasets for es-en, pt-en, and it-en were built from v.3 of the Europarl corpus, excluding the Q4/2000 portion of the data (2000-10 to 2000-12), out of which we created our testing and development datasets
+T6	Dataset 36538 36553	Europarl corpus

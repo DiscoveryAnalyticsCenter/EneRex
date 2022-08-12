@@ -1,0 +1,10 @@
+T4	Dataset_Sentence 31368 31503	Five data sets are used to assess the performance of all methods , including Synthetic, KDDCup 99 3 , Forest Cover 4 , MHAR and MNIST 5
+T5	Dataset 31445 31454	Synthetic
+T6	Dataset 31456 31465	KDDCup 99
+T7	Dataset 31470 31482	Forest Cover
+T8	Dataset 31487 31491	MHAR
+T9	Dataset 31496 31501	MNIST
+T10	Lang_lib_Sentence 30813 30884	In the experiments, all methods were executed in the MATLAB environment
+T11	Lang_lib 30866 30872	MATLAB
+T1	Lang_lib_Sentence 30886 30956	The following implementations are used: SVM in the LIBSVM package  #b7
+T2	Lang_lib 30937 30943	LIBSVM

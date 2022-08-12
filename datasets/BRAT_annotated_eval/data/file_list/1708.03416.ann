@@ -1,0 +1,11 @@
+T1	Lang_lib_Sentence 20216 20262	We implemented our proposed method using Caffe
+T2	Lang_lib 20257 20262	Caffe
+T3	Dataset_Sentence 22387 22563	Afterwards we will evaluation our proposed method on three challenging public datasets: ICVL Hand Posture Dataset  #b21 , NYU Hand Pose Dataset  #b4  and MSRA Hand Pose Dataset
+T4	Dataset 22475 22492	ICVL Hand Posture
+T5	Dataset 22509 22522	NYU Hand Pose
+T6	Dataset 22541 22555	MSRA Hand Pose
+T7	Dataset_Sentence 22768 22877	This dataset was collected from 10 different subjects using Intel's Creative Interactive Gesture Camera  #b48
+T8	Dataset_Sentence 23257 23337	The NYU hand pose dataset was collected using three Kinects from different views
+T9	Dataset 23261 23274	NYU hand pose
+T10	Dataset_Sentence 23731 23853	The MSRA hand pose dataset contains 76500 frames from 9 different subjects captured by Intel's Creative Interactive Camera
+T11	Dataset 23735 23749	MSRA hand pose

@@ -1,0 +1,16 @@
+T1	Comp_res_Sentence 7957 8095	In reference to VGG16 and ZFnet, it is reported that the latter runs faster up to 17fps, while the former runs at 5fps  #b7 , on a K40 GPU
+T2	Comp_res 8088 8095	K40 GPU
+T3	Comp_res_Sentence 8192 8407	VGG16 thus benefits for its deep feature extraction process besides its relatively high speed compared to CUMED  #b10  that runs at 5fps on a more advanced TitanX GPU for former CVC-ClinicDB (CVC-ClinicDB2015)  #b22
+T4	Comp_res 8348 8358	TitanX GPU
+T5	Dataset_Sentence 12395 12569	The framework is tested using the following public datasets tested during our experiments include: Only simple transformations are made to the raw images without augmentation
+T6	Dataset 12610 12631	CVC-Clinic2015 (CVC15
+T7	Dataset_Sentence 8192 8407	VGG16 thus benefits for its deep feature extraction process besides its relatively high speed compared to CUMED  #b10  that runs at 5fps on a more advanced TitanX GPU for former CVC-ClinicDB (CVC-ClinicDB2015)  #b22
+T8	Dataset 8370 8401	CVC-ClinicDB (CVC-ClinicDB2015)
+T9	Comp_res_Sentence 13288 13447	We train Faster R-CNN on a K40c GPU with default parameters except setting mini-batch size to 128, all batches are normalized by subtraction of fix mean values
+T10	Comp_res 13315 13323	K40c GPU
+T11	Comp_res_Sentence 13449 13540	Training took no more than 4 days for fine-tuned network without observation of overfitting
+T12	Comp_res 13476 13482	4 days
+T13	Dataset_Sentence 14301 14452	Training sets of other datasets are considered as validation sets except for CVC-EndoSceneStill where the dataset has its own division up to 183 frames
+T14	Dataset 14378 14396	CVC-EndoSceneStill
+T15	Dataset_Sentence 15574 15739	We found on CVC-ColonDB that number of proposals influenced the detection rate greatly that the accuracy reduced from 97.3% for 300 proposals to 88.3% for 1 proposal
+T16	Dataset 15586 15597	CVC-ColonDB

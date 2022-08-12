@@ -1,0 +1,6 @@
+T1	Lang_lib_Sentence 13416 13497	The free software image processing suit imagemagick [23] has been used for step 1
+T2	Lang_lib 13456 13467	imagemagick
+T3	Lang_lib_Sentence 13857 13934	For step 2, the free compression software GNU zip (gzip)  #b22  has been used
+T4	Lang_lib 13899 13913	GNU zip (gzip)
+T5	Lang_lib_Sentence 16320 16463	The estimation error displays a characteristic dependence with the number data points in the Matlab plot, with optimal performance at a given N
+T6	Lang_lib 16413 16419	Matlab

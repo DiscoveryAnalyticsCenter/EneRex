@@ -1,0 +1,4 @@
+T1	Dataset_Sentence 21035 21276	Next, we use our method to train Restricted Boltzmann Machines (RBMs) on the UCI digits dataset  #b29 , which contains 10,992 8 × 8 images of handwritten digits; we augment this data by moving each image 1px to the left, right, up, and down.
+T2	Dataset 21112 21122	UCI digits
+T3	Dataset_Sentence 24821 24934	We show in Table 1 the test set negative log-likelihoods on the binarized MNIST  #b32  and 28 × 28 Omniglot  #b16
+T4	Dataset 24895 24900	MNIST

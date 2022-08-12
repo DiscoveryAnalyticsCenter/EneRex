@@ -1,0 +1,3 @@
+T1	Dataset_Sentence 10640 10704	MRI data were collected for a preterm cohort and a control group
+T2	Lang_lib_Sentence 12177 12422	Gray matter probability maps were extracted from T1-weighted images using the unified segmentation approach implemented in the SPM toolbox and registered to a studyspecific template created with Advanced Normalization Tools (GreedySyN pipeline).
+T3	Lang_lib 12304 12315	SPM toolbox

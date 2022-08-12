@@ -1,0 +1,7 @@
+T1	Lang_lib_Sentence 20362 20525	Note that the histogram embeddings used an optimized C implementation  #b36 , as did the KL kernel 2 , while the HDD embeddings used a simple Matlab implementation
+T2	Lang_lib 20504 20510	Matlab
+T3	Lang_lib 20415 20416	C
+T4	Dataset_Sentence 20686 20931	We took the "cat" and "dog" classes from the CIFAR-10 dataset  #b16 , and represented each 32 × 32 image by a set of triples (x, y, v), where x and y are the position of each pixel in the image and v the pixel value after converting to grayscale
+T5	Dataset 20731 20739	CIFAR-10
+T6	Dataset_Sentence 22607 22833	We consider the Scene-15 dataset  #b18 , which contains 4 485 natural images in 15 location categories, and follow Wu, Gao, and Liu in extracting features from the last convolutional layer of the imagenet-vgg-verydeep-16 model
+T7	Dataset 22623 22631	Scene-15

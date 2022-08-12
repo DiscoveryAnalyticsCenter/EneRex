@@ -1,0 +1,7 @@
+T1	Comp_res_Sentence 5704 5774	The CLAB system includes an Apptronik P-170 Orion SEA testbed (Fig. 2)
+T2	Comp_res 5732 5765	Apptronik P-170 Orion SEA testbed
+T3	Comp_res_Sentence 6020 6142	The SEA's control board is connected to a small PC with Ubuntu 14.04 OS which connects to a cloud server for remotization.
+T4	Comp_res 6062 6091	small PC with Ubuntu 14.04 OS
+T5	Lang_lib_Sentence 18042 18180	For the CLAB system, TuLip  #b25 , which is a Python LTL synthesis package, was used to formulate and solve all the constraints discussed.
+T6	Lang_lib 18063 18068	TuLip
+T7	Lang_lib 18088 18094	Python

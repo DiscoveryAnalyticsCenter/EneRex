@@ -1,0 +1,10 @@
+T1	Lang_lib_Sentence 2388 2517	an interface to several languages in which the benchmarked optimizer can be written, currently C/C++, Java, Matlab/Octave, Python
+T2	Lang_lib_Sentence 2519 2583	several benchmark suites or testbeds, currently all written in C
+T3	Lang_lib_Sentence 2627 2688	data post-processing in Python and data browsing through html
+T4	Lang_lib 2483 2488	C/C++
+T5	Lang_lib 2490 2494	Java
+T6	Lang_lib 2496 2509	Matlab/Octave
+T7	Lang_lib 2511 2517	Python
+T8	Lang_lib 2582 2583	C
+T9	Lang_lib 2651 2657	Python
+T10	Lang_lib 2684 2688	html

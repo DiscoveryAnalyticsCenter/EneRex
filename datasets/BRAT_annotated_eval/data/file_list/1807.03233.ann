@@ -1,0 +1,13 @@
+T1	Dataset_Sentence 818 994	Experiments are carried out on five microarray datasets, and results demonstrate the effectiveness and robustness of our method in comparison with six state-of-art ECOC methods
+T2	Dataset_Sentence 9381 9496	To validate the proposed algorithm, experiments are carried out on five multiclass datasets (as listed in Table 1).
+T3	Lang_lib_Sentence 9777 9893	The last three ECOC methods are provided by ECOC library  #b4 , and the rest are supported by MATLAB 2016 toolboxes.
+T4	Lang_lib 9871 9882	MATLAB 2016
+T5	Lang_lib 9821 9825	ECOC
+T6	Dataset_Sentence 11844 12014	On the Breast data set, the accuracy rate N2 algorithm is 49% higher than OVA, 30% higher than the traditional ECOC, 25% higher than ECOCONE and 54% more than Forest-ECOC
+T7	Dataset_Sentence 12911 13038	Fig.4 shows that the accuracies obtained by eight ECOC methods change with varying feature size over Cancers data set using NB.
+T8	Dataset 13012 13019	Cancers
+T9	Dataset 11851 11857	Breast
+T10	Dataset_Sentence 11004 11172	When the original data sets appear high overlapping situation, especially the DLBCL dataset, the class exchange process is of higher probability to occur multiple times
+T11	Dataset 11082 11087	DLBCL
+T12	Dataset_Sentence 12383 12527	Although the N2 based approach wins most cases, the N3 algorithm just wins on the Leukemia data, achieving close performance to other algorithms
+T13	Dataset 12465 12473	Leukemia

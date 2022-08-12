@@ -1,0 +1,14 @@
+T1	Dataset_Sentence 8648 8817	For a simple yet effective demonstration of our framework, we consider all the crimes recorded in LA over the last six months of 2015 without distinguishing their types.
+T2	Dataset_Sentence 9737 9840	We collect the weather data from the Weather Underground database available at https://www.wunderground
+T3	Dataset 9774 9793	Weather Underground
+T4	Lang_lib_Sentence 13525 13592	We implement our method using Keras 4 on top of Theano 28 software.
+T5	Lang_lib 13555 13560	Keras
+T6	Lang_lib 13573 13579	Theano
+T7	Comp_res_Sentence 15032 15116	All the experiments are carried out with a single Nvidia Quadro-K4000 graphics card.
+T8	Comp_res 15082 15115	Nvidia Quadro-K4000 graphics card
+T9	Lang_lib_Sentence 15117 15204	To speed up the training process, we make use of the deep neural network library cuDNN.
+T10	Lang_lib 15198 15203	cuDNN
+T11	Comp_Lang_Sentence 26452 26578	We coded and tested the optimizer on Lasagne/Theano 7, 28 platform in Python on a machine with Nvidia GeForce GTX Titan X GPU.
+T12	Lang_lib 26489 26503	Lasagne/Theano
+T13	Lang_lib 26522 26528	Python
+T14	Comp_res 26547 26577	Nvidia GeForce GTX Titan X GPU

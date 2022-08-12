@@ -1,0 +1,7 @@
+T1	Lang_lib_Sentence 22275 22365	We have implemented our experiments using the Hadoop MapReduce framework 1 , version 1.2.1
+T2	Lang_lib 22321 22349	Hadoop MapReduce framework 1
+T3	Lang_lib_Sentence 22367 22665	We have performed experiments on a cluster of the University of Huddersfield. The cluster consists of 8 nodes (one node was allocated as "master" node), using a Gigabit Ethernet interconnect. Each node was equipped with 4 cores running at 2.5GHz, 8GB RAM and 250GB of storage space.Evaluation tests
+T4	Comp_res 22587 22648	4 cores running at 2.5GHz, 8GB RAM and 250GB of storage space
+T5	Comp_res 22400 22443	a cluster of the University of Huddersfield
+T6	Dataset_Sentence 22992 23092	We used four cyclic datasets and four tree-structured datasets with 125M, 250M, 500M and 1000M facts
+T7	Dataset_Sentence 24169 24330	We used four chain-structured datasets for increasing number of joins in the initially formed chain ( n/k − 1) with n = 125M, and k = 41.7M, 25M, 13.9M and 7.36M

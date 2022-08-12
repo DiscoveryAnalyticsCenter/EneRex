@@ -1,0 +1,7 @@
+T1	Dataset_Sentence 417 516	The Distress Analysis Interview Corpus (DAIC) is used to build a metric-based depression detection.
+T2	Dataset 421 462	Distress Analysis Interview Corpus (DAIC)
+T3	Dataset_Sentence 1592 1648	The data for the analysis was obtained from DAIC-WOZ [1]
+T4	Dataset 1636 1644	DAIC-WOZ
+T5	Dataset_Sentence 1650 1710	The dataset consists of conversations with 189 participants.
+T6	Lang_lib_Sentence 13248 13343	We have used Google Cloud Natural API to process the Transcripts to detect the depression level
+T7	Lang_lib 13261 13285	Google Cloud Natural API

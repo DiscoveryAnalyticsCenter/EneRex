@@ -1,0 +1,6 @@
+T1	Lang_lib_Sentence 14617 14758	Once the image analysis was completed, rock size distribution information was exported from Split-Desktop to MATLAB for statistical analysis.
+T2	Lang_lib 14726 14732	MATLAB
+T3	Comp_res_Sentence 15095 15212	The open-source Robot Operating System (ROS) was chosen to act as the central software node of the experimental setup
+T4	Comp_res 15111 15139	Robot Operating System (ROS)
+T5	Lang_lib_Sentence 15688 15839	The MATLAB Robotics System Toolbox acts as an interface between ROS and Split-Desktop while providing statistical analysis to the operator in real-time
+T6	Lang_lib 15692 15722	MATLAB Robotics System Toolbox

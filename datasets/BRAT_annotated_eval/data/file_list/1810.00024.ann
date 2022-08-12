@@ -1,0 +1,6 @@
+T1	Dataset_Sentence 34695 34876	The Facenet embedding model was trained on a subset of the Microsoft Celeb-1M image dataset  #b19 , which was released for the MSR Image Recognition Challenge at ACM Multimedia 2016
+T2	Dataset 34754 34778	Microsoft Celeb-1M image
+T3	Dataset_Sentence 35529 35668	Training and evaluation data is taken from the Georgia Tech Face Database  #b30  and contains faces of 50 people, with 15 images per person
+T4	Dataset 35576 35593	Georgia Tech Face
+T5	Dataset_Sentence 37331 37536	We take the GitHub repository's version of the Facenet VAE along with the provided weights trained on the CASIA-WebFace dataset  #b46 , a large-scale dataset containing almost 500k faces of over 10k people
+T6	Dataset 37437 37450	CASIA-WebFace

@@ -1,0 +1,13 @@
+T1	Dataset_Sentence 15610 15692	We consider four benchmark datasets in our analysis, namely, a two-step procedure.
+T2	Dataset_Sentence 15938 16013	We refer to MNIST, CalTech and the kannada-MNIST datasets as large datasets
+T3	Dataset 15950 15955	MNIST
+T4	Dataset 15957 15964	CalTech
+T5	Dataset 15973 15986	kannada-MNIST
+T6	Dataset 16027 16050	CalTech 101 Silhouettes
+T7	Dataset_Sentence 16015 16109	The MNIST , CalTech 101 Silhouettes and the kannada-MNIST datasets have data dimension of 784.
+T8	Dataset_Sentence 16109 16258	For the Bars & Stripes dataset, we consider three RBMs with 4, 8, 16 hidden units and for the large datasets, we consider RBMs with 500 hidden units.
+T9	Dataset 16117 16131	Bars & Stripes
+T10	Comp_Lang_Sentence 20024 20286	The algorithms are implemented using Python and CUDAMat (A CUDA-based matrix class for Python bindings)  #b18 ) on a system with Intel processor i7 − 7700 (4 CPU cores and processor base frequency 3.60 GHz), NVIDIA Titan X Pascal GPU and 16 GB RAM configuration.
+T11	Lang_lib 20061 20067	Python
+T12	Lang_lib 20072 20127	CUDAMat (A CUDA-based matrix class for Python bindings)
+T13	Comp_res 20153 20285	Intel processor i7 − 7700 (4 CPU cores and processor base frequency 3.60 GHz), NVIDIA Titan X Pascal GPU and 16 GB RAM configuration

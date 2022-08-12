@@ -1,0 +1,14 @@
+T1	Dataset_Sentence 19595 19710	We therefore train our network based on synthetically rendered data, where exact ground-truth labels are available.
+T2	Lang_lib_Sentence 23060 23221	Training We train all our inverse face rendering networks using the Caffe deep learning framework  #b25  with stochastic gradient descent based on AdaDelta  #b66
+T3	Lang_lib 23128 23133	Caffe
+T4	Source_code_Sentence 30901 30966	For more results, we refer to our supplemental document and video
+T5	Dataset_Sentence 30671 30900	We then show quantitative and qualitative results and comparisons on the datasets LFW (Labeled Faces in the Wild)  #b22 , 300-VW (300 Videos in the Wild)  #b53 , CelebA  #b39 , FaceWarehouse [10], Volker  #b63  and Thomas  #b18 .
+T6	Dataset 30753 30784	LFW (Labeled Faces in the Wild)
+T7	Dataset 30793 30824	300-VW (300 Videos in the Wild)
+T8	Dataset 30833 30839	CelebA
+T9	Dataset 30848 30861	FaceWarehouse
+T10	Dataset 30868 30874	Volker
+T11	Dataset 30886 30892	Thomas
+T12	Comp_res_Sentence 32582 32713	We thus use AlexNet for our inverse face rendering network, which only requires 3.9 ms for the forward pass (on an Nvidia Titan Xp)
+T13	Comp_res 32662 32668	3.9 ms
+T14	Comp_res 32697 32712	Nvidia Titan Xp

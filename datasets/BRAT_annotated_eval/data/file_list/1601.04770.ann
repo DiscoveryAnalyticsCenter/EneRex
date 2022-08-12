@@ -1,0 +1,7 @@
+T1	Comp_Lang_Sentence 39647 39754	Our current implementation is in MATLAB (single thread), and we use an Intel Core i7-3770 CPU with 8 GB RAM
+T2	Comp_res 39718 39740	Intel Core i7-3770 CPU
+T3	Lang_lib 39680 39686	MATLAB
+T4	Comp_res_Sentence 39756 39930	The runtime is about 66 seconds to denoise an image of size 256× 256, where the EM adaptation part takes about 14 seconds, while the MAP denoising part takes about 52 seconds
+T5	Comp_res 39867 39877	14 seconds
+T6	Comp_res 39777 39787	66 seconds
+T7	Comp_res 39920 39930	52 seconds

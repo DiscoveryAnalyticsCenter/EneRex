@@ -1,0 +1,5 @@
+T1	Dataset_Sentence 35563 35676	The first one is the widely used Buffy dataset  #b10  consisting of 748 annotated video frames from Buffy TV show
+T2	Dataset 35596 35615	Buffy dataset  #b10
+T3	Dataset_Sentence 35834 35923	The second dataset, called "DL", contains 1000 daily life photos we collect from websites
+T4	Dataset 35950 35959	DL datase
+T5	Dataset_Sentence 35925 36008	Compared with Buffy, the DL dataset possesses more various garment attribute values

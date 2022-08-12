@@ -1,0 +1,11 @@
+T1	Dataset_Sentence 63502 63595	We create a ClassiNet using 257,306 unlabeled sentences from the Large Movie Review dataset 1
+T2	Dataset 63567 63585	Large Movie Review
+T3	Dataset_Sentence 64042 64485	For evaluation purposes we use four binary classification datasets: the Stanford sentiment treebank (TR) 2 (903 positive test instances and 903 negative test instances), movie reviews dataset (MR)  #b50  (5331 positive instances and 5331 negative instances), customer reviews dataset (CR)  #b21 ) (925 positive instances and 569 negative instances), and subjectivity dataset (SUBJ)  #b49 ) (5000 positive instances and 5000 negative instances)
+T4	Dataset 64114 64146	Stanford sentiment treebank (TR)
+T5	Dataset 64212 64238	movie reviews dataset (MR)
+T6	Dataset 64301 64330	customer reviews dataset (CR)
+T7	Dataset 64396 64423	subjectivity dataset (SUBJ)
+T8	Comp_res_Sentence 65051 65148	We use a CPU server containing 48 cores of 2.5GHz Intel Xeon CPU and 512GB RAM in our experiments
+T9	Comp_res 65060 65129	CPU server containing 48 cores of 2.5GHz Intel Xeon CPU and 512GB RAM
+T10	Comp_res_Sentence 65150 65335	The entire training pipeline of training feature predictors, building the ClassiNet and expanding training instances using Global feature expansion method takes approximately 1.5 hours.
+T11	Comp_res 65325 65334	1.5 hours

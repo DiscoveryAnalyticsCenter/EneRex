@@ -1,0 +1,4 @@
+T1	Dataset_Sentence 11058 11158	Daily life egocentric dataset  #b14  This dataset consists of 4 egocentric videos of 3-5 hours each.
+T2	Dataset_Sentence 11437 11536	Disneyworld egocentric dataset  #b3  This dataset consists of 8 egocentric videos of 6-8 hours each
+T3	Dataset 11437 11459	Disneyworld egocentric
+T4	Dataset 11058 11079	Daily life egocentric

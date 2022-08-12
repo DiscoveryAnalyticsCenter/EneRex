@@ -1,0 +1,8 @@
+T1	Dataset_Sentence 1065 1207	We demonstrate state-of-the-art performance and outperform competing methods on standard benchmarks including the MPII, LSP, and FLIC datasets
+T2	Dataset 1179 1183	MPII
+T3	Dataset 1185 1188	LSP
+T4	Dataset 1194 1198	FLIC
+T5	Lang_lib_Sentence 23987 24069	We define and implement our model using the Caffe [13] libraries for deep learning
+T6	Lang_lib 24031 24036	Caffe
+T7	Source_code_Sentence 24071 24230	We publicly release the source code and details on the architecture, learning parameters, design decisions and data augmentation to ensure full reproducibility
+T8	Source_code 29762 29846	https://github.com/CMU-Perceptual-Computing-Lab/ convolutional-pose-machines-release

@@ -1,0 +1,8 @@
+T2	Dataset_Sentence 791 858	We then evaluate the models on the more natural SICK challenge data
+T3	Dataset_Sentence 860 1072	Both models perform competitively on the SICK data and generalize well in all three experiments on simulated data, suggesting that they can learn suitable representations for logical inference in natural language
+T4	Dataset 840 859	ICK challenge data.
+T1	Dataset_Sentence 5095 5184	To address this question, we apply our models to the SICK entailment challenge data in §6
+T5	Dataset 5148 5173	SICK entailment challenge
+T6	Comp_res_Sentence 10292 10357	Training times on CPUs vary from hours to days across experiments
+T7	Lang_lib_Sentence 24203 24284	We parsed the data from both sources with the Stanford PCFG Parser v. 3.3.1  #b13
+T8	Lang_lib 24249 24268	Stanford PCFG Parse

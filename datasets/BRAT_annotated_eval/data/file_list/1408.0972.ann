@@ -1,0 +1,5 @@
+T1	Dataset_Sentence 15310 15461	To illustrate the effectiveness of this procedure, we consider a combination of 3 text datasets used frequently in the information retrieval literature
+T2	Dataset 15609 15648	Medlars-Cranfield-CISI (MCC) collection
+T3	Dataset_Sentence 15596 15723	The combined Medlars-Cranfield-CISI (MCC) collection consists of nearly 4,000 scientific abstracts from 3 different disciplines
+T4	Dataset_Sentence 27274 27422	The Newsgroups 6 (NG6) dataset is a subset from the infamous "Twenty Newsgroups" text corpus that has become a common benchmark for cluster analysis
+T5	Dataset 27278 27296	Newsgroups 6 (NG6)

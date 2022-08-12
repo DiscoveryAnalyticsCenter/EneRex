@@ -1,0 +1,5 @@
+T1	Comp_Lang_Sentence 15967 16039	All implementations are in Python on a Windows machine Core i7 Ram 24GB.
+T2	Lang_lib 15994 16000	Python
+T3	Comp_res 16006 16038	Windows machine Core i7 Ram 24GB
+T4	Lang_lib_Sentence 16511 16595	Random search, L-BFGS-B (with multi-start) in Scipy and Direct in nlopt package  #b8
+T5	Lang_lib 16557 16562	Scipy

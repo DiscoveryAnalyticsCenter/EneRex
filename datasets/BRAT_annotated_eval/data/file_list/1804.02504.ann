@@ -1,0 +1,4 @@
+T1	Dataset_Sentence 14595 14781	We trained all our models including the seq2seq baseline and the five proposed models using the Twitter chatting corpus available on Marsan-Ma's github repository  #b30  using tensorflow
+T2	Lang_lib_Sentence 14595 14782	We trained all our models including the seq2seq baseline and the five proposed models using the Twitter chatting corpus available on Marsan-Ma's github repository  #b30  using tensorflow.
+T3	Lang_lib 14771 14781	tensorflow
+T4	Dataset 14691 14714	Twitter chatting corpus

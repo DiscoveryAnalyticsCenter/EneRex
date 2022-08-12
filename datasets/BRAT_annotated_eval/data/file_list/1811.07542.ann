@@ -1,0 +1,12 @@
+T1	Dataset_Sentence 227 356	We evaluate the use of a densely connected convolutional network encoder (DenseNet) which was pretrained on the ImageNet data set
+T2	Dataset 339 347	ImageNet
+T3	Dataset_Sentence 2784 2979	We evaluate in this work the accuracy of a U-net architecture  #b10  #b11  where the encoder is a densely connected convolutional network  #b16  which has been pretrained on the ImageNet data set
+T4	Dataset 2962 2970	ImageNet
+T5	Dataset_Sentence 794 1095	We evaluate the effectiveness of the proposed approach on the BRATS 2018 segmentation challenge [1,2,3,4,5] where we obtained dice scores of 0.79, 0.90, 0.85 and 95% Hausdorff distance of 2.9mm, 3.95mm, and 6.48mm for enhanced tumor core, whole tumor and tumor core respectively on the validation set.
+T6	Dataset 856 866	BRATS 2018
+T7	Dataset_Sentence 6469 6540	We used the BRATS 2018 training and validation sets for our experiments
+T8	Dataset 6481 6491	BRATS 2018
+T9	Comp_res_Sentence 8445 8514	We train the network for 160 epochs on a Nvidia GeForce GTX 1080 GPU.
+T10	Comp_res 8486 8513	Nvidia GeForce GTX 1080 GPU
+T11	Lang_lib_Sentence 8113 8162	The network is implemented using Microsoft CNTK 1
+T12	Lang_lib 8146 8160	Microsoft CNTK

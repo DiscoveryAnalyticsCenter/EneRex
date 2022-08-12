@@ -1,0 +1,5 @@
+T1	Dataset_Sentence 28890 29129	We use a large publicly available dataset MIMIC-III containing deidenti ed health-related data associated with over forty thousand patients who stayed in critical care units of the Beth Israel Deaconess Medical Center between 2001 and 2012
+T2	Dataset 28932 28941	MIMIC-III
+T3	Dataset_Sentence 35047 35199	We use de-identi ed EHRs dataset from University of California, San Diego (UCSD) Medical Center with 8,022 patients by 748 medications by 299 diagnoses.
+T4	Dataset 35067 35071	EHRs
+T5	Dataset 35085 35142	University of California, San Diego (UCSD) Medical Center

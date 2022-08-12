@@ -1,0 +1,2 @@
+T1	Dataset_Sentence 25772 26186	The second set of experiments was designed to examine the efficiency of the SBM and SAM algorithms and compare their performance with the proposed mutation operators-WGWRGM, WGWWGM, WLRGWRGM, WGWNNM, WGWWNNM, WGIBNNM, RGIBNNM, SWGLM, IBRGBWGM and IBRGBRGM-using the TSPLIB, a collection of travelling salesman problem datasets maintained by Gerhard Reinelt at http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/
+T2	Dataset 26038 26044	TSPLIB

@@ -1,0 +1,3 @@
+T1	Dataset_Sentence 2697 2854	We use the recently available Pascal3D+  #b38  dataset, as well as rendered images to analyze R-CNNs capabilities at a more detailed level than previous work
+T2	Dataset 2727 2736	Pascal3D+
+T3	Dataset_Sentence 8678 8792	For our synthetic data experiments we use an extended set of CAD models, and consider multiple types of renderings

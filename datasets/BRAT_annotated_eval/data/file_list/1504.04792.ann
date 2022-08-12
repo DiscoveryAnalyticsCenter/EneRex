@@ -1,0 +1,10 @@
+T1	Dataset_Sentence 23053 23136	We experimented on three datasets: UCF 101  #b26 , HMDB 51  #b15  and Youtube  #b19
+T2	Dataset 23088 23095	UCF 101
+T3	Dataset 23104 23111	HMDB 51
+T4	Dataset 23123 23130	Youtube
+T5	Dataset_Sentence 26902 26939	The following image datasets are used
+T6	Dataset 26943 26951	Scene 15
+T7	Dataset 27072 27085	MIT indoor 67
+T8	Dataset 27190 27201	Caltech 101
+T9	Dataset 27340 27351	Caltech 256
+T10	Dataset 27513 27520	SUN 397

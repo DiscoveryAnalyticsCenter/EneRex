@@ -1,0 +1,11 @@
+T1	Source_code_Sentence 1434 1520	Code associated with this paper is available at https://github.com/duncan-barrack/NHPP
+T2	Source_code 1482 1520	https://github.com/duncan-barrack/NHPP
+T3	Dataset_Sentence 16374 16606	Next we introduce our first real data set which is made up of the till transaction times from the 6 th of September 2011 to the 28 th of February 2015 for 74 UK stores (10,000 transactions per store) belonging to a large UK retailer
+T4	Dataset_Sentence 17876 18004	This data set contains bike trip information for the Hubway bike share program located in Boston, Massachusetts and its environs
+T5	Dataset_Sentence 19002 19224	This data set contains the time of day (00:00:00 to 23:59:59) in every month from April 2011 to the end of December 2014 at which patients arrived at Accident and Emergency (A&E) departments in hospitals throughout England
+T6	Dataset 18989 19001	A&E data set
+T7	Dataset 17849 17875	Hubway bike share data set
+T8	Lang_lib_Sentence 19622 19826	We have made Matlab code for the classification and clustering procedures outlined in Sections 3-4 and for the synthetic data set results in Section 5.1 available at https://github.com/duncan-barrack/NHPP
+T9	Lang_lib 19635 19641	Matlab
+T10	Source_code_Sentence 19622 19826	We have made Matlab code for the classification and clustering procedures outlined in Sections 3-4 and for the synthetic data set results in Section 5.1 available at https://github.com/duncan-barrack/NHPP
+T11	Source_code 19788 19826	https://github.com/duncan-barrack/NHPP

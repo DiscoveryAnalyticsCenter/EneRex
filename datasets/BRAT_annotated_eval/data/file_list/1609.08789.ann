@@ -1,0 +1,2 @@
+T1	Dataset_Sentence 6483 6676	Our experiments are conducted on the WSJ database whose profile is largely standard: 37, 318 utterances for model training and 1, 049 utterances (involving dev93, eval92 and eval93) for testing
+T2	Dataset 6520 6523	WSJ

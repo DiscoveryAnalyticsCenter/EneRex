@@ -1,0 +1,17 @@
+T1	Dataset_Sentence 579 779	We demonstrate substantial cumulative improvements associated with each of the three aspects of our training strategy, and validate our approach on IWSLT 2016 English-German and two WMT language pairs
+T2	Dataset 727 752	IWSLT 2016 English-German
+T3	Dataset 761 764	WMT
+T4	Dataset 924 949	WMT 2016 English-Romanian
+T5	Dataset_Sentence 781 949	By sampling fertilities in parallel at inference time, our non-autoregressive model achieves near-state-of-the-art performance of 29.8 BLEU on WMT 2016 English-Romanian
+T6	Dataset_Sentence 21193 21331	We evaluate the proposed NAT on three widely used public machine translation corpora: IWSLT16 En-De 2 , WMT14 En-De, 3 and WMT16 En-Ro 4 .
+T7	Dataset 21279 21292	IWSLT16 En-De
+T8	Dataset 21297 21308	WMT14 En-De
+T9	Dataset 21316 21327	WMT16 En-Ro
+T10	Dataset_Sentence 21332 21534	We use IWSLT-which is smaller than the other two datasets-as the development dataset for ablation experiments, and additionally train and test our primary models on both directions of both WMT datasets.
+T11	Dataset 21339 21344	IWSLT
+T12	Comp_Lang_Sentence 22717 22782	decoding is implemented in PyTorch on a single NVIDIA Tesla P100.
+T13	Comp_res 22764 22781	NVIDIA Tesla P100
+T14	Lang_lib 22744 22751	PyTorch
+T15	Source_code_Sentence 24385 24445	We have open-sourced our PyTorch implementation of the NAT 6
+T16	Source_code 28818 28852	https://github.com/clab/fast align
+T17	Source_code 28855 28896	https://github.com/salesforce/nonauto-nmt

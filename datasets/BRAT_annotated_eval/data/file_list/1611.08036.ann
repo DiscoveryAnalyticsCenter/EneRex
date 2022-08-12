@@ -1,0 +1,14 @@
+T1	Dataset_Sentence 670 789	Our multi-modal model achieved an accuracy of 89.21% on the standard Cornell Grasp Dataset and runs at real-time speeds
+T2	Dataset 739 752	Cornell Grasp
+T3	Dataset_Sentence 4506 4568	Our experiments are done on the standard Cornell Grasp Dataset
+T4	Dataset 4547 4560	Cornell Grasp
+T5	Dataset_Sentence 16418 16519	For comparing our method with others, we test our architecture on the standard Cornell Grasp Dataset.
+T6	Dataset_Sentence 16603 16664	This dataset consists of 885 images of 240 different objects.
+T7	Dataset_Sentence 16520 16602	The dataset is available at http://pr.cs.cornell.edu/ grasping/rect_data/data.php.
+T8	Dataset 16497 16510	Cornell Grasp
+T9	Lang_lib_Sentence 18794 18928	For training and validation of our models we used Keras deep learning library, which is written in Python and running on top of Theano
+T10	Lang_lib 18893 18899	Python
+T11	Lang_lib 18844 18849	Keras
+T12	Lang_lib 18922 18928	Theano
+T13	Comp_res 18975 19046	NVIDIA GeForce GTX 645 GPU with Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz
+T14	Comp_res_Sentence 18930 19046	Experiments were performed on a CUDA enabled NVIDIA GeForce GTX 645 GPU with Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz

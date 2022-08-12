@@ -1,0 +1,4 @@
+T1	Dataset_Sentence 17925 17992	We use radiographs taken by the Childrens Hospital Los Angeles  #b9
+T2	Dataset_Sentence 18233 18356	The images have two clinicians GP ratings associated with them  #b19 , which we use in bench mark comparison in Section 6.2
+T3	Lang_lib_Sentence 24238 24562	The classifiers used are the WEKA  #b28  implementations of k Nearest Neighbour (where k is set through cross validation), Naive Bayes, C4.5 decision tree  #b29 , Support Vector Machines  #b30  with linear and quadratic basis function kernels, Random Forest  #b31  (with 100 trees) and Rotation Forest  #b32  (with 30 trees)
+T4	Lang_lib 24267 24271	WEKA

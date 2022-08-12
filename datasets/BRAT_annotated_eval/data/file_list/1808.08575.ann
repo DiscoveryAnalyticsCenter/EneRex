@@ -1,0 +1,13 @@
+T1	Lang_lib_Sentence 17205 17242	We implement the models using PyTorch
+T2	Lang_lib 17235 17242	PyTorch
+T3	Dataset_Sentence 17475 17696	For all the generative models (i.e. our TG-Net model as well as all the encoder-decoder baselines), we choose the largest publicly available keyphrase generation dataset KP20k constructed by  #b25  as the training dataset
+T4	Dataset 17645 17650	KP20k
+T5	Dataset_Sentence 17698 17809	KP20k consists of a large amount of high-quality scientific publications from various computer science domains.
+T6	Dataset 17698 17703	KP20k
+T7	Dataset_Sentence 18518 18638	Besides KP20k, we also adopt other four widely-used scientific datasets for comprehensive testing, including Inspec  #b1
+T8	Dataset_Sentence 26337 26456	We also perform an ablation study on Krapivin for better understanding the contributions of the main parts of our model
+T9	Dataset 26374 26382	Krapivin
+T10	Dataset 22288 22291	NUS
+T11	Dataset 22292 22299	SemEval
+T12	Dataset 22277 22285	Krapivin
+T13	Dataset 22270 22276	Inspec

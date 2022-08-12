@@ -1,0 +1,4 @@
+T1	Lang_lib_Sentence 24569 24726	While the first three modules described above are implemented using Python, the visualizer module is implemented using Javascript and the D3 graphics library
+T2	Lang_lib 24637 24643	Python
+T3	Lang_lib 24688 24698	Javascript
+T4	Lang_lib 24707 24718	D3 graphics

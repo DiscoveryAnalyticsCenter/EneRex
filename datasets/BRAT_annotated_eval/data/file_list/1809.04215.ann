@@ -1,0 +1,5 @@
+T1	Comp_Lang_Sentence 22155 22251	An ASUS Xtion Pro camera was used along with OpenNI tracker in ROS Indigo and Linux Ubuntu 14.04
+T2	Lang_lib 22218 22228	ROS Indigo
+T3	Comp_res_Sentence 22233 22251	Linux Ubuntu 14.04
+T4	Lang_lib 22200 22214	OpenNI tracker
+T5	Comp_res 22158 22179	ASUS Xtion Pro camera

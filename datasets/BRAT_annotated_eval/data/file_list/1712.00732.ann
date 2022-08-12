@@ -1,0 +1,7 @@
+T1	Dataset_Sentence 4783 4935	First, considering the lack of labeled data, we establish a labeled sentiment dataset from Weibo, one of the most popular social network sites in China.
+T2	Dataset 4874 4879	Weibo
+T3	Dataset_Sentence 9750 9844	We collected 2.99 billion tweets on Weibo from August 14, 2009 to May 23, 2014 as raw dataset.
+T4	Dataset_Sentence 27115 27340	Our proposed Weibo Sentiment Towards Celebrities dataset consists of three heterogeneous networks with 12,814 users, 126,380 tweets, 71,268 social links and 37,689 profile values, of which the detail is presented in Section 3
+T5	Dataset_Sentence 27354 27563	Wikipedia Requests for Adminship  #b29  is a signed network with 10,835 nodes and 159,388 edges, corresponding to votes cast by Wikipedia uses in election for promoting individuals to the role of administrator
+T6	Dataset 27128 27163	Weibo Sentiment Towards Celebrities
+T7	Dataset 27354 27386	Wikipedia Requests for Adminship

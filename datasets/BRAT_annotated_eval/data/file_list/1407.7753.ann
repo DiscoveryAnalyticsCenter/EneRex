@@ -1,0 +1,14 @@
+T1	Lang_lib_Sentence 23497 23551	The HBLCoClust algorithm was implemented in Python 2.7
+T2	Lang_lib 23541 23551	Python 2.7
+T3	Source_code_Sentence 23556 23627	the source code is available at https://github.com/folivetti/HBLCoClust
+T4	Source_code 23588 23627	https://github.com/folivetti/HBLCoClust
+T5	Comp_res_Sentence 23735 23837	Both algorithms was run under a Linux Debian 7.6 system on a i5-2450 @ 2.5 GHz machine with 6GB of RAM
+T6	Comp_res 23767 23837	Linux Debian 7.6 system on a i5-2450 @ 2.5 GHz machine with 6GB of RAM
+T7	Dataset_Sentence 24803 24911	For this application it was chosen the Zoo, House Votes 84', Soybean small and Soybean large data sets  #b19
+T8	Dataset 24842 24845	Zoo
+T9	Dataset 24847 24862	House Votes 84'
+T10	Dataset 24864 24877	Soybean small
+T11	Dataset 24882 24895	Soybean large
+T12	Dataset 26669 26824	For this purpose it was used a combination of the Movielens data set  #b22  and the IMDB data avaliable at ftp://ftp.fu-berlin.de/pub/misc/movies/database/
+T13	Dataset 26719 26728	Movielens
+T14	Dataset 26753 26757	IMDB

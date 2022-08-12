@@ -1,0 +1,30 @@
+T5	Lang_lib_Sentence 11767 12006	For instance, a trivially parallel solution can be implemented by using MATLAB's parfor instruction (or similar instructions in other languages) that executes each iteration independently as a thread on one of the available processor cores
+T6	Lang_lib 11839 11845	MATLAB
+T7	Dataset 12658 12873	Figure 4 shows the mean time in seconds taken by the pseudoflow algorithm  #b13  to yield figure-ground hypotheses for a set of 500 images from the VOC [4] dataset, with a schedule of 20 λ values and 178 seeds, each
+T8	Dataset 12806 12809	VOC
+T9	Comp_res_Sentence 13047 13212	As soon as 10 cores are used, the performance of the slower processor (Intel Xeon E5-2660) starts to saturate above 10 seconds, still far from real-time expectations
+T10	Comp_res_Sentence 13214 13353	Even on the faster processor (Intel Xeon E5-2620 v3) the execution times get close to the other processor times as soon as 6 cores are used
+T11	Comp_res 13118 13136	Intel Xeon E5-2660
+T12	Comp_res 13244 13265	Intel Xeon E5-2620 v3
+T13	Dataset_Sentence 26388 26552	Typical sizes of the images in the VOC dataset  #b1  used in our case study amount to roughly 80-100K pixels, and so are the sizes of the corresponding image graphs
+T14	Dataset 26423 26426	VOC
+T15	Lang_lib_Sentence 26866 26985	Moreover, library calls like NVIDIA's nppiGraphcut [2, 3] require five such large ma-trices as parameters, among others
+T16	Lang_lib 26895 26916	NVIDIA's nppiGraphcut
+T17	Lang_lib_Sentence 28967 29118	The problem solver is implemented in MATLAB, while the pseudoflow solver is implemented in C (hooked up with the MATLAB code by means of MEX libraries)
+T18	Lang_lib 29004 29010	MATLAB
+T19	Lang_lib 29058 29059	C
+T20	Lang_lib_Sentence 29674 29755	The GPU cards have run the push-relabel implementation of the NVIDIA NPPI library
+T21	Lang_lib 29736 29747	NVIDIA NPPI
+T22	Comp_res_Sentence 29933 30224	The evaluation has been driven on two types of HP workstations: three Z840 stations equipped with one Intel(R) Xeon(R) CPU E5-2620 v3 @ 2.40GHz processor (6 cores) and 32GB RAM, and one Z420 station equipped with an Intel(R) Xeon(R) CPU E5-1650 v2 @ 3.50GHz processor (6 cores) and 32 GB RAM
+T23	Comp_res 30003 30109	Z840 stations equipped with one Intel(R) Xeon(R) CPU E5-2620 v3 @ 2.40GHz processor (6 cores) and 32GB RAM
+T24	Comp_res 30119 30224	Z420 station equipped with an Intel(R) Xeon(R) CPU E5-1650 v2 @ 3.50GHz processor (6 cores) and 32 GB RAM
+T25	Comp_res_Sentence 30226 30403	We used five NVIDIA GPUs for the experiments, two Tesla K40 (one per Z840 station) and three Titan Black boards (two hosted on a Z840 machine, and the third on the Z420 station)
+T26	Comp_res 30276 30285	Tesla K40
+T27	Comp_res 30319 30337	Titan Black boards
+T28	Comp_res_Sentence 30405 30554	A Tesla K40 board features 2880 cores clocked at 745MHz and 12 GB of RAM, while a Titan Black board has 2880 cores running at 889 MHz and 6 GB of RAM
+T29	Lang_lib_Sentence 30556 30592	We used CUDA 6.5 for the experiments
+T30	Lang_lib 30564 30572	CUDA 6.5
+T31	Comp_res_Sentence 30594 30657	All the systems run Linux and are connected by Gigabit Ethernet
+T32	Comp_res 30614 30619	Linux
+T33	Dataset_Sentence 30658 30951	Unless otherwise stated, all the experiments use a 500 image subset of the VOC2012 dataset  #b1  and evaluate over this subset of images the minimum, maximum, and average time values, taken by the graph cuts of the CPMC  #b7  figure-ground segmentation stage that yields the segment hypotheses
+T34	Dataset 30733 30740	VOC2012

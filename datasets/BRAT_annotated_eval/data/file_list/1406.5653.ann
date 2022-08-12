@@ -1,0 +1,5 @@
+T1	Dataset_Sentence 22268 22411	We show results on the INRIA Pedestrian dataset  #b5  and the ETH Pedestrian Dataset  #b10 , which are popularly used for pedestrian detection.
+T2	Dataset 22291 22315	INRIA Pedestrian dataset
+T3	Dataset 22330 22352	ETH Pedestrian Dataset
+T4	Dataset_Sentence 22412 22522	The INRIA dataset is relatively simple with 2-4 pedestrians on average per image and of roughly the same scale
+T5	Dataset_Sentence 22524 22664	ETH dataset is more complex, with 10-12 pedestrians per frame and of varying sizes, it is acquired using a moving camera on a crowded street

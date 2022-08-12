@@ -1,0 +1,10 @@
+T1	Dataset_Sentence 17240 17341	We evaluate our method on three different datasets, including KTH  #b25 , UCF-11  #b20  and UCF sport
+T2	Dataset 17302 17305	KTH
+T3	Dataset 17314 17320	UCF-11
+T4	Dataset 17332 17341	UCF sport
+T5	Lang_lib_Sentence 21697 21810	More precisely, to extract AlexNet features, we use CAFFE  #b11 , due to their promising performance and accuracy
+T6	Lang_lib 21749 21754	CAFFE
+T7	Dataset_Sentence 22901 22990	We applied our method on three datasets: KTH, UCF-Sport Action and UCF-11 Action datasets
+T8	Dataset 22942 22945	KTH
+T9	Dataset 22947 22963	UCF-Sport Action
+T10	Dataset 22968 22981	UCF-11 Action

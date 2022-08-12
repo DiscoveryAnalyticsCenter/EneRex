@@ -1,0 +1,19 @@
+T1	Dataset_Sentence 605 730	Since existing ground truth datasets are not sufficiently large to train a CNN, we generate a synthetic Flying Chairs dataset
+T2	Dataset 699 722	synthetic Flying Chairs
+T3	Dataset_Sentence 732 921	We show that networks trained on this unrealistic data still generalize very well to existing datasets such as Sintel and KITTI, achieving competitive accuracy at frame rates of 5 to 10 fps
+T4	Dataset 843 849	Sintel
+T5	Dataset 854 859	KITTI
+T6	Comp_res_Sentence 3504 3598	Leveraging an efficient GPU implementation of CNNs, our method is faster than most competitors
+T7	Comp_res 3528 3531	GPU
+T8	Dataset_Sentence 16873 17015	We retrieve 964 images from Flickr 2 with a resolution of 1, 024 × 768 from the categories 'city' (321), 'landscape' (129) and 'mountain' (514
+T9	Comp_res_Sentence 18736 18805	To be reasonably quick, all these operations are processed on the GPU
+T10	Comp_res 18802 18805	GPU
+T11	Dataset_Sentence 19276 19409	We report the results of our networks on the Sintel, KITTI and Middlebury datasets, as well as on our synthetic Flying Chairs dataset
+T12	Dataset 19321 19327	Sintel
+T13	Dataset 19329 19334	KITTI
+T14	Dataset 19339 19349	Middlebury
+T15	Dataset 19378 19401	synthetic Flying Chairs
+T16	Comp_res_Sentence 25704 25781	For both train-ing and testing of the networks we use an NVIDIA GTX Titan GPU
+T17	Comp_res_Sentence 25761 25781	NVIDIA GTX Titan GPU
+T18	Comp_res_Sentence 25783 25909	The CPU timings of DeepFlow and EpicFlow are taken from  #b29 , while the timing of LDOF was computed on a single 2.66GHz core
+T19	Comp_res 25890 25909	single 2.66GHz core

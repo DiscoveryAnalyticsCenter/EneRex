@@ -1,0 +1,19 @@
+T1	Source_code_Sentence 5938 5997	All our code (Torch implementation) is available online Con
+T2	Lang_lib_Sentence 5938 5997	All our code (Torch implementation) is available online Con
+T3	Lang_lib 5952 5957	Torch
+T4	Lang_lib_Sentence 16787 16876	Our implementation is based on Torch library Collobert et al. and extends the rnn package
+T5	Lang_lib 16818 16823	Torch
+T6	Lang_lib 16865 16868	rnn
+T7	Source_code_Sentence 16885 16921	All our code is available online Con
+T8	Comp_res_Sentence 16923 16977	The training was done on an NVIDIA K40 GPU (12G memory
+T9	Comp_res 16951 16965	NVIDIA K40 GPU
+T10	Dataset_Sentence 16993 17282	As a sanity check to confirm the ability of the grid generator GG and image sampler S to generate the next frame given the current frame and the correct optical flow map, we ran simple warping tests using Sintel dataset  #b7 , by isolating the two modules from the rest of the architecture
+T11	Dataset 17198 17204	Sintel
+T12	Dataset_Sentence 18161 18378	Moving MNIST dataset  #b35  consists of sequences of 20 frames each, obtained by moving (translating) MNIST digit images inside a square of size 64 × 64, using uniform random sampling to obtain direction and velocity;
+T13	Dataset 18161 18173	Moving MNIST
+T14	Dataset_Sentence 22075 22338	We train our architecture on real videos extracted from HMDB-51 dataset  #b24 , with about 107k frames in total (1.1 hours), and present qualitative results of the predicted next frame and the optical flow maps on test sequences extracted from PROST Santner et al
+T15	Dataset 22131 22138	HMDB-51
+T16	Dataset 22319 22324	PROST
+T17	Dataset 22351 22356	ViSOR
+T18	Dataset_Sentence 25805 26027	We trained our architecture on Camvid dataset  #b6 , which consists of road scene RGB videos, with about 10k training frames in total, among which 468 are labelled, and about 7k testing frames, among which 233 are labelled
+T19	Dataset 25836 25842	Camvid

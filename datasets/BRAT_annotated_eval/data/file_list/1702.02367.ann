@@ -1,0 +1,7 @@
+T1	Dataset_Sentence 645 766	The model is evaluated on the factoid Question Answering and top-n recommendation tasks of the bAbI Movie Dialog dataset.
+T2	Dataset 740 757	bAbI Movie Dialog
+T3	Comp_Lang_Sentence 16628 16711	The model is implemented in TensorFlow  #b0  and executed on an NVIDIA TITAN X GPU.
+T4	Comp_res 16692 16710	NVIDIA TITAN X GPU
+T5	Lang_lib 16656 16666	TensorFlow
+T6	Lang_lib_Sentence 15236 15376	Questions, answers and documents given in input to the model are preprocessed using the NLTK toolkit  #b2  performing only word tokenization
+T7	Lang_lib 15324 15328	NLTK

@@ -1,0 +1,5 @@
+T1	Lang_lib_Sentence 26247 26365	The selected algorithm is the WQRS algorithm  #b9 , included in the standard distribution of the WFDB software package
+T2	Lang_lib 26344 26365	WFDB software package
+T3	Dataset_Sentence 26374 26689	The validation dataset consists of a selection of ECG recordings showing regular rhythms and extrasystoles, and comprises all the 18 recordings of 24 hours duration of the Normal Sinus Rhythm (NSR) database and 20 recordings of 30 minutes duration from the MIT-BIH Arrhythmia database, from the Physionet initiative
+T4	Dataset 26546 26571	Normal Sinus Rhythm (NSR)
+T5	Dataset 26631 26649	MIT-BIH Arrhythmia

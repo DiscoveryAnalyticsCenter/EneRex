@@ -1,0 +1,6 @@
+T1	Comp_res_Sentence 1293 1345	The run time is around 3 seconds on average per case
+T2	Comp_res 1316 1325	3 seconds
+T3	Dataset_Sentence 1101 1203	The proposed method is evaluated on a public dataset of 302 spine CT volumes with various pathologies.
+T4	Dataset_Sentence 19352 19502	First, we evaluate the proposed method on the database introduced in [2] which consists of 302 CT scans of patients with varying types of pathologies.
+T5	Comp_res_Sentence 22457 22570	All experiments are conducted on a workstation equipped with an Intel 3.50 GHz CPU and a 12GB Nvidia Titan X GPU.
+T6	Comp_res 22521 22569	Intel 3.50 GHz CPU and a 12GB Nvidia Titan X GPU

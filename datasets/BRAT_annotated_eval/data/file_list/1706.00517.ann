@@ -1,0 +1,4 @@
+T1	Dataset_Sentence 26984 27135	We explore different network sizes and learning methods tested on a subset of the MNIST dataset in order to determine convergence and accuracy results.
+T2	Dataset 27066 27071	MNIST
+T3	Comp_res_Sentence 37452 37635	The best overall performance of the architecture occurs for a network of size 2500-2000-1500-1000-500-10 mapped to a 2 × 4 array of cores with 16 × 16 PEs, with training done using CP
+T4	Comp_res_Sentence 37904 38034	CATERPILLAR achieves 98% effective utilization of the FPUs and performance of 211 GFLOPS/W for networks that fit on cores using CP

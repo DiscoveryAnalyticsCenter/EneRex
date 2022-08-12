@@ -1,0 +1,8 @@
+T1	Dataset_Sentence 581 763	We demonstrate that execution guidance universally improves model performance on various text-to-SQL datasets with different scales and query complexity: WikiSQL, ATIS, and GeoQuery.
+T2	Dataset 735 742	WikiSQL
+T3	Dataset 744 748	ATIS
+T4	Dataset 754 762	GeoQuery
+T5	Dataset_Sentence 4453 4705	We evaluate the unmodified baselines as well as our extensions on the WikiSQL  #b37 , ATIS  #b5 , and Geo-Query  #b34  datasets, showing that using the execution guidance paradigm during decoding leads to an improvement of 1% − 6% over the base models.
+T6	Dataset 4523 4530	WikiSQL
+T7	Dataset 4539 4543	ATIS
+T8	Dataset 4555 4564	Geo-Query

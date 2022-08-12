@@ -1,0 +1,4 @@
+T1	Dataset_Sentence 7960 8104	We collected an extensive dataset with over 7 hours and 500GB of driving data across a range of road and weather conditions to train our models.
+T2	Comp_res_Sentence 8105 8226	All models were trained on the NVIDIA DGX-1 supercomputer and were able to run in real-time on the car's NVIDIA Drive PX2
+T3	Comp_res 8136 8162	NVIDIA DGX-1 supercomputer
+T4	Comp_res 8210 8226	NVIDIA Drive PX2

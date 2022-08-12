@@ -1,0 +1,5 @@
+T1	Comp_res_Sentence 28136 28267	We ran our experimentations on a Dell OptiPlex 7010 machine with 4-core i7-3770 Intel CPU @ 3.40GHz and with a 24GiB System Memory.
+T2	Comp_res 28169 28266	Dell OptiPlex 7010 machine with 4-core i7-3770 Intel CPU @ 3.40GHz and with a 24GiB System Memory
+T3	Lang_lib_Sentence 28051 28135	In this section we present practical results obtained using a Python implementation.
+T4	Lang_lib 28113 28119	Python
+T5	Dataset_Sentence 28268 28411	The distributed Mapper algorithm was tested on different models and compared their run-time with a publicly available data available at  #b46 .

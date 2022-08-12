@@ -1,0 +1,11 @@
+T1	Lang_lib_Sentence 22578 22685	The deep neural network was trained in Python using the Keras library  #b34  running on top of Theano  #b35
+T2	Lang_lib 22617 22623	Python
+T3	Lang_lib 22673 22679	Theano
+T4	Lang_lib 22634 22639	Keras
+T5	Comp_res_Sentence 22688 22801	To reduce training time, the deep neural network was trained using an NVIDIA DIGITS DevBox with four Titan X GPUs
+T6	Comp_res 22758 22801	NVIDIA DIGITS DevBox with four Titan X GPUs
+T7	Comp_res_Sentence 23060 23137	The network was trained for 1200 training epochs over the course of four days
+T8	Comp_res 23128 23137	four days
+T9	Comp_res_Sentence 30204 30349	With four Titan X GPUs, training a new batch of networks can be done in a day, which is also an improvement over training a single large network.
+T10	Comp_res 30214 30225	Titan X GPU
+T11	Comp_res 30276 30281	a day

@@ -1,0 +1,3 @@
+T1	Comp_Lang_Sentence 34033 34266	To perform the SMC evaluation of DAMPC, and to compare it with the centralized AMPC from  #b12 , we designed the above experiments for both algorithms in C, and ran them on the 2x Intel Xeon E5-2660 Okto-Core, 2.2 GHz, 64 GB platform
+T2	Lang_lib 34187 34188	C
+T3	Comp_res 34210 34266	2x Intel Xeon E5-2660 Okto-Core, 2.2 GHz, 64 GB platform

@@ -1,0 +1,17 @@
+T1	Source_code_Sentence 16046 16178	We implement the hierarchical and amortized S-EFE models in TensorFlow  #b0 , which allows us to leverage automatic differentiation.
+T2	Lang_lib_Sentence 16046 16177	We implement the hierarchical and amortized S-EFE models in TensorFlow  #b0 , which allows us to leverage automatic differentiation
+T3	Lang_lib 16106 16116	TensorFlow
+T4	Dataset_Sentence 18562 18686	We apply the S-EFE on three datasets: ArXiv papers, U.S. Senate speeches, and purchases on supermarket grocery shopping data
+T6	Dataset 18614 18634	U.S. Senate speeches
+T7	Dataset 18640 18686	purchases on supermarket grocery shopping data
+T8	Dataset_Sentence 18774 18917	ArXiv papers: This dataset contains the abstracts of papers published on the ArXiv under the 19 different tags between April 2007 and June 2015
+T9	Dataset 18774 18779	ArXiv
+T5	Dataset 18600 18605	ArXiv
+T10	Dataset_Sentence 19154 19235	Senate speeches: This dataset contains U.S. Senate speeches from 1994 to mid 2009
+T11	Dataset 19154 19169	Senate speeches
+T12	Dataset_Sentence 19822 19901	Grocery shopping data: This dataset contains the purchases of 3, 206 customers.
+T13	Dataset 19822 19838	Grocery shopping
+T14	Lang_lib_Sentence 23236 23276	We implemented all methods in Tensorflow
+T15	Lang_lib 23266 23276	Tensorflow
+T16	Source_code_Sentence 31742 31810	Code is available at https://github.com/mariru/structured_embeddings
+T17	Source_code 31763 31810	https://github.com/mariru/structured_embeddings

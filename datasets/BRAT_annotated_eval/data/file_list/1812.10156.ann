@@ -1,0 +1,6 @@
+T1	Dataset_Sentence 9289 9473	Moreover, we explore the Hamming distance to the closest bit string with a different classification on deep neural networks trained on the MNIST database  #b48  of hand-written digits.
+T2	Dataset 9428 9433	MNIST
+T3	Lang_lib_Sentence 24709 24795	Simulations were run using the python package Keras with a backend of TensorFlow  #b67
+T4	Lang_lib 24740 24746	python
+T5	Lang_lib 24755 24760	Keras
+T6	Lang_lib 24779 24789	TensorFlow

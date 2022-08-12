@@ -1,0 +1,7 @@
+T1	Dataset_Sentence 12652 12727	Our dataset includes weather data, soil properties, spectral data, and NDVI
+T2	Dataset 12673 12685	weather data
+T3	Dataset 12687 12702	soil properties
+T4	Dataset 12704 12717	spectral data
+T5	Dataset 12723 12727	NDVI
+T6	Dataset_Sentence 12729 12817	Spectral data and NDVI are extracted from Lantsat 5 and Landsat 7 remote sensing images.
+T7	Dataset_Sentence 12818 12909	The multi-spectral images were collected from 2001 to 2003 of a cotton field in west Texas.

@@ -1,0 +1,4 @@
+T1	Comp_Lang_Sentence 48658 48796	In our experiments, we used the Open Motion Planning Library (OMPL 1.3,  #b48 ) on a 2.6GHz×2 Intel Core i5 processor with 16GB of memory.
+T2	Lang_lib 48690 48718	Open Motion Planning Library
+T3	Lang_lib 48720 48728	OMPL 1.3
+T4	Comp_res 48743 48795	2.6GHz×2 Intel Core i5 processor with 16GB of memory

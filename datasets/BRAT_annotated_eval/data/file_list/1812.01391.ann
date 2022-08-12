@@ -1,0 +1,16 @@
+T1	Dataset_Sentence 1047 1259	Extensive experiments on three standard benchmark datasets, Wiki, Pascal VOC and NUS-WIDE demonstrate that the proposed framework outperforms the state-of-the-art for both supervised and semi-supervised settings.
+T2	Dataset 1107 1111	Wiki
+T3	Dataset 1113 1123	Pascal VOC
+T4	Dataset 1128 1136	NUS-WIDE
+T5	Dataset_Sentence 3412 3654	Extensive experiments on three standard benchmark datasets, namely Wiki  #b22 , Pascal VOC 2007 #b4  and NUS-WIDE Chua et al. [2009] and comparisons with state-of-the-art cross-modal techniques show the effectiveness of the proposed approach.
+T6	Dataset 3479 3483	Wiki
+T7	Dataset 3492 3502	Pascal VOC
+T8	Dataset 3517 3525	NUS-WIDE
+T9	Dataset_Sentence 24525 24738	The Wiki dataset  #b22  contains about 2, 866 articles with their corresponding images and textual documents spread across 10 different categories such as art, history, etc. collected from the Wikipedia repository
+T10	Dataset 24529 24533	Wiki
+T11	Dataset_Sentence 24983 25157	The Pascal VOC 2007 dataset  #b4  consists of images and their textual queries annotated with multiple tags and the standard train:test split is 5011 : 4952 images-text pairs
+T12	Dataset 24987 25002	Pascal VOC 2007
+T13	Dataset_Sentence 25479 25614	The NUS-WIDE dataset Chua et al. [2009] is a large dataset which has images and the associated tags spread across 81 unique categories.
+T14	Dataset 25483 25491	NUS-WIDE
+T15	Lang_lib_Sentence 33130 33193	We have implemented both of the networks LP and CRL in PyTorch.
+T16	Lang_lib 33185 33192	PyTorch

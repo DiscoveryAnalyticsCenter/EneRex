@@ -1,0 +1,6 @@
+T1	Dataset_Sentence 357 487	n our study, one of the largest public eye-tracking databases [1] which has fixation points of 15 observers on 1003 images is used
+T2	Dataset 378 422	he largest public eye-tracking databases [1]
+T3	Dataset_Sentence 5362 5558	They collected 1003 random images from Flickr and LabelMe  #b9  (Figure 2) and full resolution images were displayed for 3 seconds to viewers in a dark room using a chin rest for a head stabilizer
+T4	Dataset 5401 5419	Flickr and LabelMe
+T5	Lang_lib_Sentence 8828 8885	MATLAB was used in image processing and feature extractio
+T6	Lang_lib 8828 8834	MATLAB

@@ -1,0 +1,5 @@
+T1	Comp_Lang_Sentence 17304 17568	The semantic analysis of the subject image by using our interactive tool takes about 2 seconds, and the makeup style transfer step takes about 1 second with Matlab2014a on a PC with an Intel(R) Core (TM) i5-4690 CPU, 3.50 GHz processor and 8GB RAM under Windows OS
+T2	Comp_res 17389 17398	2 seconds
+T3	Comp_res 17447 17455	1 second
+T4	Lang_lib 17461 17472	Matlab2014a
+T5	Comp_res 17478 17568	PC with an Intel(R) Core (TM) i5-4690 CPU, 3.50 GHz processor and 8GB RAM under Windows OS

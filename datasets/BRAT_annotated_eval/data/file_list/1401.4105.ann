@@ -1,0 +1,3 @@
+T1	Dataset_Sentence 12669 12782	e conducted our training experiments using the training images from the BSDS300  #b1  image segmentation database
+T2	Dataset_Sentence 12784 12929	We used the whole 200 training images, and randomly sampled one 64 × 64 patch from each training image, giving us a total of 200 training samples
+T3	Dataset 12741 12782	BSDS300  #b1  image segmentation database

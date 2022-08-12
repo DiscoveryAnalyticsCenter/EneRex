@@ -1,0 +1,12 @@
+T1	Dataset_Sentence 674 834	We evaluate the accuracy of the proposed system using our new DroCap dataset and also demonstrate its applicability for MoCap in the wild using a consumer drone
+T2	Dataset 736 742	DroCap
+T3	Dataset_Sentence 3491 3660	We release a drone-based MoCap dataset named Dro-Cap, which consists of human motion videos captured by a flying drone and ground truth obtained by a Vicon MoCap System.
+T4	Dataset 3536 3543	Dro-Cap
+T5	Dataset_Sentence 16879 16944	The 3D data is from Human3.6M  #b21 , a large-scale MoCap dataset
+T6	Dataset 16899 16908	Human3.6M
+T7	Dataset_Sentence 17679 17846	To avoid training on the same dataset, we learn a pose dictionary from the CMU Mocap dataset  #b39  for singleframe initialization, achieving a mean error around 77mm.
+T8	Dataset 17754 17763	CMU Mocap
+T9	Comp_res_Sentence 22326 22455	The reconstruction algorithm was running offline on a desktop with an Intel i7 3.4G CPU, 8G RAM and a GeForce GTX Titan X 6GB GPU
+T10	Comp_res 22380 22455	desktop with an Intel i7 3.4G CPU, 8G RAM and a GeForce GTX Titan X 6GB GPU
+T11	Comp_res_Sentence 22457 22591	The running time per frame was ∼0.2s for 2D pose estimation and ∼0.3s for singleframe initialization, which could be easily paralleled
+T12	Comp_res_Sentence 22593 22681	For a sequence of 300 frames, the running time for multi-frame bundle adjustment was ∼8s

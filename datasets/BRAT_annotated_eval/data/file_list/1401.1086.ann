@@ -1,0 +1,9 @@
+T2	Comp_res 28534 28631	Intel X5677 Xeon Processor operating at 3.46 GHz with a 12 MB Cache and 288 GB of physical memory
+T1	Comp_res_Sentence 28478 28693	All experiments were run on a computer equipped with an Intel X5677 Xeon Processor operating at 3.46 GHz with a 12 MB Cache and 288 GB of physical memory. The machine was running Red Hat Enterprise Linux version 6.1
+T3	Lang_lib_Sentence 28735 28867	All algorithms were coded using Python 2.7 and leveraged the NetworkX library 2 as well as the PuLP library for linear programming 3
+T4	Lang_lib 28767 28842	Python 2.7 and leveraged the NetworkX library 2 as well as the PuLP library
+T5	Lang_lib_Sentence 28870 28977	All statistics presented in this section were calculated using the R statistics software.In our experiments
+T6	Lang_lib 28937 28949	R statistics
+T7	Dataset_Sentence 28979 29045	we utilized a dataset of an Italian 380 kV power transmission grid
+T8	Dataset 29007 29045	Italian 380 kV power transmission grid
+T9	Dataset_Sentence 29054 29182	This power grid network consisted of 310 nodes of which 113 were source, 96 were load, and the remainder were transmission nodes

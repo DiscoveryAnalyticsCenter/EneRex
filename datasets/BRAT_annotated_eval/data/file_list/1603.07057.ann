@@ -1,0 +1,18 @@
+T1	Dataset_Sentence 4754 4939	We inflate the size of an existing training set, the CASIA WebFace collection  #b43 , to several times its size using domain specific methods designed for face image synthesis (Fig. 1b)
+T2	Dataset 4807 4831	CASIA WebFace collection
+T3	Dataset_Sentence 849 1009	The effect of training and testing with synthesized images is extensively tested on the LFW and IJB-A (verification and identification) benchmarks and Janus CS2
+T4	Dataset 937 940	LFW
+T5	Dataset 945 950	IJB-A
+T6	Dataset 1000 1009	Janus CS2
+T7	Dataset_Sentence 5221 5344	Finally, (3), we rigorously test our approach on the LFW  #b10 , IJB-A (verification and identification) and CS2 benchmarks
+T8	Dataset 5274 5277	LFW
+T9	Dataset 5286 5291	IJB-A
+T10	Dataset 5330 5333	CS2
+T11	Source_code_Sentence 33983 34102	Code and data will be publicly available. Please see www.openu.ac.il/home/ hassner/projects/augmented_faces for updates
+T12	Source_code 34036 34090	www.openu.ac.il/home/ hassner/projects/augmented_faces
+T13	Dataset_Sentence 23977 24074	We tested our approach extensively on the recently released IARPA Janus benchmarks  #b13  and LFW
+T14	Dataset 24037 24048	IARPA Janus
+T15	Dataset 24071 24074	LFW
+T16	Dataset_Sentence 24920 25068	IJB-A is a new publicly available benchmark released by NIST 3 to raise the challenges of unconstrained face identification and verification methods
+T17	Dataset 24920 24925	IJB-A
+T18	Dataset_Sentence 25325 25416	The IJB-A benchmarks consist of face verification (1:1) and face identification (1:N) tests

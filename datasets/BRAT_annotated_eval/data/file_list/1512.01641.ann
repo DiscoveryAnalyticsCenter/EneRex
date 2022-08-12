@@ -1,0 +1,14 @@
+T1	Comp_res_Sentence 657 921	In this research we present our improvements to current comparable corpora mining methodologies by reimplementation of the comparison algorithms (using Needleman-Wunch algorithm), introduction of a tuning script and computation time improvement by GPU acceleration
+T2	Comp_res 905 908	GPU
+T3	Dataset_Sentence 12235 12375	We chose Wikipedia as a data source because of the large number of documents that it provides (4,524,017 on EN wiki, at the time of writing)
+T4	Dataset_Sentence 12590 12710	For the experiments in data mining, the TED corpora prepared for the IWSLT 2015 evaluation campaign by FBK 1 were chosen
+T5	Dataset_Sentence 12834 12905	The experiments were conducted on DE-EN, FR-EN, VI-EN and CS-EN corpora
+T6	Dataset 12244 12253	Wikipedia
+T7	Dataset 12630 12633	TED
+T8	Comp_res_Sentence 17160 17299	The developed solution also facilitated multi-threading and decreased the mining time by a factor of 6.1x (using a 4-core, 8-thread i7 CPU)
+T9	Comp_res_Sentence 17301 17439	The alignment algorithm was also reimplemented for better accuracy and to leverage the power of GPUs for additional computing requirements
+T10	Comp_res 17275 17298	4-core, 8-thread i7 CPU
+T11	Comp_res 17397 17401	GPUs
+T12	Comp_res_Sentence 29595 29689	The experiments were conducted on a hyper-threaded Intel Core i7 CPU and a GeForce GTX 660 GPU
+T13	Comp_res 29646 29663	Intel Core i7 CPU
+T14	Comp_res 29670 29689	GeForce GTX 660 GPU

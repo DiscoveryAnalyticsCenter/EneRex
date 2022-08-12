@@ -1,0 +1,10 @@
+T1	Dataset_Sentence 14805 15063	For MNIST, we took 10,000 samples from the original test dataset (clearly, not using them later for testing) to pre-train the encodings, and 60,000 samples from the training dataset to simulate the online bandit with 10 arms corresponding to different digits
+T2	Dataset 14809 14814	MNIST
+T3	Dataset_Sentence 15065 15318	For STL-10, 100,000 samples of unlabeled data are used to pre-train the encodings; then the 5,000 test samples together with 8,000 training samples are combined to simulate the online bandit, again with 10 different arms corresponding to image classes 1
+T4	Dataset 15069 15075	STL-10
+T5	Dataset_Sentence 15321 15493	For Caltech-101 Silhouettes-28 dataset, out of the original 8671 samples, 671 are used for pre-training and 8000 for online learning with 101 different arms (class labels).
+T6	Dataset 15325 15351	Caltech-101 Silhouettes-28
+T7	Dataset_Sentence 15494 15649	For CIFAR-10 dataset, 10,000 test set samples are used for pre-training, and 50,000 training samples are left for the online bandit with 10 arms (classes).
+T8	Dataset 15498 15506	CIFAR-10
+T9	Dataset_Sentence 15650 15799	For Warfarin dataset, 528 test set samples are used for pre-training, and 5,000 training samples are left for the online bandit with 3 arms (classes)
+T10	Dataset 15654 15662	Warfarin

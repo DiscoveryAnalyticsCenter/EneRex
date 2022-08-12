@@ -1,0 +1,14 @@
+T1	Dataset_Sentence 960 1177	We demonstrate that our algorithm has superior action recognition performance on the UCF action recognition dataset, the Olympic sports dataset and the collective activity dataset over several state-of-the-art methods
+T2	Dataset 1109 1139	he collective activity dataset
+T3	Dataset 1041 1075	the UCF action recognition dataset
+T4	Dataset 1077 1103	the Olympic sports dataset
+T5	Dataset_Sentence 18299 18463	We evaluate the performance of SODA+MRF model on three datasets: the UCF50 action recognition dataset, the Olympic Sports Dataset and the Collective Activity Datase
+T6	Dataset 18368 18400	UCF50 action recognition dataset
+T7	Dataset 18402 18428	the Olympic Sports Dataset
+T8	Dataset 18433 18464	the Collective Activity Dataset
+T9	Dataset_Sentence 18470 18765	UCF50 is an action recognition dataset with 50 annotated action categories, consisting of realistic videos taken from YouTube including: Baseball Pitch, Basketball Shooting, Bench Press, Biking, Billiards Shot, Breaststroke, Clean and Jerk, Diving, Drumming, Fencing, Golf Swing, Playing Guitar.
+T10	Dataset_Sentence 19033 19164	The Olympic Sports Dataset contains videos of athletes practicing different sports with 16 sport classes and 50 sequences per class
+T11	Dataset_Sentence 19172 19361	The collective activity dataset contains 7 different collective activities: crossing, walking, waiting, talking, queueing, jogging and dancing and 60 video sequences with varying view point
+T12	Comp_Lang_Sentence 26819 26928	e also compare computational complexity in Table 2 for a machine running Matlab with 2.26GHz CPU and 24Gb RAM
+T13	Lang_lib 26892 26898	Matlab
+T14	Comp_res 26876 26928	machine running Matlab with 2.26GHz CPU and 24Gb RAM
